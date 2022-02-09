@@ -65,21 +65,20 @@ public class PokemonTeamTest {
         Pokemon venusaur = new Pokemon("Venusaur");
         Pokemon pikachu = new Pokemon("Pikachu");
         Pokemon espeon = new Pokemon("Espeon");
-        Pokemon lapras = new Pokemon("Lapras");
         pokemonTeam.addPokemon(venusaur);
         pokemonTeam.addPokemon(pikachu);
+        pokemonTeam.addPokemon(venusaur);
         pokemonTeam.addPokemon(espeon);
-        pokemonTeam.addPokemon(lapras);
-        pokemonTeam.removePokemon("Pikachu");
+        assertTrue(pokemonTeam.removePokemon(0));
         assertEquals(3, pokemonTeam.getPokemonTeam().size());
-        assertFalse(pokemonTeam.getPokemonTeam().contains(pikachu));
-        assertEquals(venusaur, pokemonTeam.getPokemonTeam().get(0));
-        assertEquals(espeon, pokemonTeam.getPokemonTeam().get(1));
-        assertEquals(lapras, pokemonTeam.getPokemonTeam().get(2));
+        assertTrue(pokemonTeam.getPokemonTeam().contains(venusaur));
+        assertEquals(pikachu, pokemonTeam.getPokemonTeam().get(0));
+        assertEquals(venusaur, pokemonTeam.getPokemonTeam().get(1));
+        assertEquals(espeon, pokemonTeam.getPokemonTeam().get(2));
     }
 
     @Test
-    public void removePokemonWithDuplicatesTest() {
+    public void removeLastPokemonTest() {
         Pokemon venusaur = new Pokemon("Venusaur");
         Pokemon pikachu = new Pokemon("Pikachu");
         Pokemon espeon = new Pokemon("Espeon");
@@ -87,12 +86,12 @@ public class PokemonTeamTest {
         pokemonTeam.addPokemon(pikachu);
         pokemonTeam.addPokemon(venusaur);
         pokemonTeam.addPokemon(espeon);
-        pokemonTeam.removePokemon("Venusaur");
+        assertTrue(pokemonTeam.removePokemon(3));
         assertEquals(3, pokemonTeam.getPokemonTeam().size());
         assertTrue(pokemonTeam.getPokemonTeam().contains(venusaur));
-        assertEquals(pikachu, pokemonTeam.getPokemonTeam().get(0));
-        assertEquals(venusaur, pokemonTeam.getPokemonTeam().get(1));
-        assertEquals(espeon, pokemonTeam.getPokemonTeam().get(2));
+        assertEquals(venusaur, pokemonTeam.getPokemonTeam().get(0));
+        assertEquals(pikachu, pokemonTeam.getPokemonTeam().get(1));
+        assertEquals(venusaur, pokemonTeam.getPokemonTeam().get(2));
     }
 
     @Test
@@ -105,7 +104,7 @@ public class PokemonTeamTest {
         pokemonTeam.addPokemon(pikachu);
         pokemonTeam.addPokemon(espeon);
         pokemonTeam.addPokemon(lapras);
-        pokemonTeam.removePokemon("Snorlax");
+        assertFalse(pokemonTeam.removePokemon(4));
         assertEquals(4, pokemonTeam.getPokemonTeam().size());
         assertEquals(venusaur, pokemonTeam.getPokemonTeam().get(0));
         assertEquals(pikachu, pokemonTeam.getPokemonTeam().get(1));

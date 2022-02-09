@@ -25,36 +25,17 @@ class PokemonTest {
 
     @Test
     public void addMoveTest() {
-        pokemon.addMove("SolarBeam");
+        assertTrue(pokemon.addMove("SolarBeam"));
         assertEquals(1, pokemon.getMoves().size());
         assertEquals("SolarBeam", pokemon.getMoves().get(0));
     }
 
     @Test
     public void addSameMoveTwiceTest() {
-        pokemon.addMove("SolarBeam");
-        pokemon.addMove("SolarBeam");
+        assertTrue(pokemon.addMove("SolarBeam"));
+        assertFalse(pokemon.addMove("SolarBeam"));
         assertEquals(1, pokemon.getMoves().size());
         assertEquals("SolarBeam", pokemon.getMoves().get(0));
-    }
-
-    @Test
-    public void addMoveToAndPastLimitTest() {
-        pokemon.addMove("SolarBeam");
-        pokemon.addMove("Leech Seed");
-        pokemon.addMove("Magnitude");
-        pokemon.addMove("Tackle");
-        assertEquals(4, pokemon.getMoves().size());
-        assertEquals("SolarBeam", pokemon.getMoves().get(0));
-        assertEquals("Leech Seed", pokemon.getMoves().get(1));
-        assertEquals("Magnitude", pokemon.getMoves().get(2));
-        assertEquals("Tackle", pokemon.getMoves().get(3));
-        pokemon.addMove("Flamethrower");
-        assertEquals(4, pokemon.getMoves().size());
-        assertEquals("SolarBeam", pokemon.getMoves().get(0));
-        assertEquals("Leech Seed", pokemon.getMoves().get(1));
-        assertEquals("Magnitude", pokemon.getMoves().get(2));
-        assertEquals("Tackle", pokemon.getMoves().get(3));
     }
 
     @Test
@@ -63,7 +44,7 @@ class PokemonTest {
         pokemon.addMove("Leech Seed");
         pokemon.addMove("Magnitude");
         pokemon.addMove("Tackle");
-        pokemon.removeMove("Leech Seed");
+        assertTrue(pokemon.removeMove("Leech Seed"));
         assertEquals(3, pokemon.getMoves().size());
         assertEquals("SolarBeam", pokemon.getMoves().get(0));
         assertEquals("Magnitude", pokemon.getMoves().get(1));
@@ -76,7 +57,7 @@ class PokemonTest {
         pokemon.addMove("Leech Seed");
         pokemon.addMove("Magnitude");
         pokemon.addMove("Tackle");
-        pokemon.removeMove("Flamethrower");
+        assertFalse(pokemon.removeMove("Flamethrower"));
         assertEquals(4, pokemon.getMoves().size());
         assertEquals("SolarBeam", pokemon.getMoves().get(0));
         assertEquals("Leech Seed", pokemon.getMoves().get(1));

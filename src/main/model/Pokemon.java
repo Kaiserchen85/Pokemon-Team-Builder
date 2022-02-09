@@ -22,18 +22,25 @@ public class Pokemon {
     }
 
     //MODIFIES: This
-    //EFFECTS: Adds a move into moves if not already present. Up to 4 moves allowed.
-    public void addMove(String move) {
-        if (!moves.contains(move) && moves.size() < 4) {
+    //EFFECTS: Adds a move into moves if it isn't already in the list of moves and return true.
+    //         Otherwise do nothing and return false.
+    public boolean addMove(String move) {
+        if (!moves.contains(move)) {
             moves.add(move);
+            return true;
+        } else {
+            return false;
         }
     }
 
     //MODIFIES: This
     //EFFECTS: Adds a move into moves if not already present.
-    public void removeMove(String move) {
+    public boolean removeMove(String move) {
         if (moves.contains(move)) {
             moves.remove(move);
+            return true;
+        } else {
+            return false;
         }
     }
 

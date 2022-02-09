@@ -1,11 +1,10 @@
 package model;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class PokemonTeam {
     private String teamName;
-    private List<Pokemon> pokemonTeam;
+    private ArrayList<Pokemon> pokemonTeam;
 
     //EFFECTS: name of team is set to name, team has no pokemon.
     public PokemonTeam(String teamName) {
@@ -27,16 +26,15 @@ public class PokemonTeam {
         }
     }
 
+    //REQUIRES: int must be >= 0.
     //MODIFIES: This
-    //EFFECTS: Removes Pokemon from team if found, otherwise does nothing.
-    //         If there are multiple, remove first one found.
-    public void removePokemon(String pokemon) {
-        for (Pokemon p : pokemonTeam) {
-            if (p.getName().equals(pokemon)) {
-                pokemonTeam.remove(p);
-                break;
-            }
+    //EFFECTS: Removes Pokemon at given index from team and produces true. Otherwise, do nothing and produce false.
+    public boolean removePokemon(int index) {
+        if (pokemonTeam.size() > index) {
+            pokemonTeam.remove(index);
+            return true;
         }
+        return false;
     }
 
     //MODIFIES: This
@@ -49,11 +47,15 @@ public class PokemonTeam {
         return statTotal;
     }
 
+    //public void swapPokemon(int swap1, int swap2) {
+
+    //}
+
     public String getTeamName() {
         return teamName;
     }
 
-    public List<Pokemon> getPokemonTeam() {
+    public ArrayList<Pokemon> getPokemonTeam() {
         return pokemonTeam;
     }
 }

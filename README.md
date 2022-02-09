@@ -4,8 +4,7 @@
 
 What does this application do:
 - Add Pokemon to teams
-- Add items to Pokemon
-- Save teams with names to access later
+  - Add items, typing, moves and base stat total to Pokemon
 - Create new Pokemon
 - Check overall stats(power) of teams
 
@@ -26,5 +25,6 @@ course!
 - As a user, I want to be able to remove Pokemon from a Team.
 - As a user, I want to be able to add and remove items to my Pokemon.
 - As a user, I want to be able to add and remove moves to my Pokemon.
-- As a user, I want to be able to change the typing of my Pokemon.
-- As a user, I want to be able to add change the stats of my Pokemon.
+- As a user, I want to be able to change the typing and stats of my Pokemon.
+- As a user, I want to be able to view the Pokemon in the team and the overall stat total.
+  (- As a user, I want to be able to re-arrange my Pokemon in my team.)
