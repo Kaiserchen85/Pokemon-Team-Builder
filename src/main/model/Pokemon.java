@@ -11,7 +11,7 @@ public class Pokemon {
     private String type2;
     private int baseStatTotal;
 
-    //EFFECTS: name of Pokemon is set to name, Pokemon has no stats, items, moves or typing.
+    //EFFECTS: name of Pokemon is set to name, Pokemon has stat of 1, no items, no moves, and no typing.
     public Pokemon(String name) {
         this.name = name;
         item = "None";
@@ -22,8 +22,8 @@ public class Pokemon {
     }
 
     //MODIFIES: This
-    //EFFECTS: Adds a move into moves if it isn't already in the list of moves and return true.
-    //         Otherwise do nothing and return false.
+    //EFFECTS: Adds a move to Pokemon if it isn't in the list of moves and return true.
+    //         Otherwise, do nothing and return false.
     public boolean addMove(String move) {
         if (!moves.contains(move)) {
             moves.add(move);
@@ -34,7 +34,8 @@ public class Pokemon {
     }
 
     //MODIFIES: This
-    //EFFECTS: Adds a move into moves if not already present.
+    //EFFECTS: Removes move from Pokemon if found in list of moves and produces true.
+    //         Otherwise, do nothing and produce false.
     public boolean removeMove(String move) {
         if (moves.contains(move)) {
             moves.remove(move);
@@ -51,7 +52,7 @@ public class Pokemon {
     }
 
     //MODIFIES: This
-    //EFFECTS: Removes item from Pokemon.
+    //EFFECTS: Removes item from the Pokemon.
     public void removeItem() {
         this.item = "None";
     }
@@ -59,7 +60,7 @@ public class Pokemon {
     //REQUIRES: Strings must be one of these 19 different strings:
     //          None, Normal, Water, Fire, Grass, Electric, Ground, Rock, Ice, Fighting, Fairy, Ghost
     //          Dark, Bug, Steel, Flying, Poison, Dragon, Psychic
-    //          And both input strings cannot be None.
+    //          Both input strings cannot be None.
     //MODIFIES: This
     //EFFECTS: Adds typing to Pokemon.
     public void addTyping(String primaryType, String secondaryType) {

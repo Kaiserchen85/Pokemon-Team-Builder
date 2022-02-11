@@ -71,7 +71,6 @@ public class PokemonTeamTest {
         pokemonTeam.addPokemon(espeon);
         assertTrue(pokemonTeam.removePokemon(0));
         assertEquals(3, pokemonTeam.getPokemonTeam().size());
-        assertTrue(pokemonTeam.getPokemonTeam().contains(venusaur));
         assertEquals(pikachu, pokemonTeam.getPokemonTeam().get(0));
         assertEquals(venusaur, pokemonTeam.getPokemonTeam().get(1));
         assertEquals(espeon, pokemonTeam.getPokemonTeam().get(2));
@@ -88,7 +87,6 @@ public class PokemonTeamTest {
         pokemonTeam.addPokemon(espeon);
         assertTrue(pokemonTeam.removePokemon(3));
         assertEquals(3, pokemonTeam.getPokemonTeam().size());
-        assertTrue(pokemonTeam.getPokemonTeam().contains(venusaur));
         assertEquals(venusaur, pokemonTeam.getPokemonTeam().get(0));
         assertEquals(pikachu, pokemonTeam.getPokemonTeam().get(1));
         assertEquals(venusaur, pokemonTeam.getPokemonTeam().get(2));
@@ -127,5 +125,39 @@ public class PokemonTeamTest {
         pokemonTeam.addPokemon(espeon);
         pokemonTeam.addPokemon(lapras);
         assertEquals(807, pokemonTeam.getStatTotalOfTeam());
+    }
+
+    @Test
+    public void swapTest() {
+        Pokemon venusaur = new Pokemon("Venusaur");
+        Pokemon pikachu = new Pokemon("Pikachu");
+        Pokemon espeon = new Pokemon("Espeon");
+        Pokemon lapras = new Pokemon("Lapras");
+        pokemonTeam.addPokemon(venusaur);
+        pokemonTeam.addPokemon(pikachu);
+        pokemonTeam.addPokemon(espeon);
+        pokemonTeam.addPokemon(lapras);
+        pokemonTeam.swapPokemon(0, 2);
+        assertEquals(espeon, pokemonTeam.getPokemonTeam().get(0));
+        assertEquals(pikachu, pokemonTeam.getPokemonTeam().get(1));
+        assertEquals(venusaur, pokemonTeam.getPokemonTeam().get(2));
+        assertEquals(lapras, pokemonTeam.getPokemonTeam().get(3));
+    }
+
+    @Test
+    public void swapSamePokemonTest() {
+        Pokemon venusaur = new Pokemon("Venusaur");
+        Pokemon pikachu = new Pokemon("Pikachu");
+        Pokemon espeon = new Pokemon("Espeon");
+        Pokemon lapras = new Pokemon("Lapras");
+        pokemonTeam.addPokemon(venusaur);
+        pokemonTeam.addPokemon(pikachu);
+        pokemonTeam.addPokemon(espeon);
+        pokemonTeam.addPokemon(lapras);
+        pokemonTeam.swapPokemon(0, 0);
+        assertEquals(venusaur, pokemonTeam.getPokemonTeam().get(0));
+        assertEquals(pikachu, pokemonTeam.getPokemonTeam().get(1));
+        assertEquals(espeon, pokemonTeam.getPokemonTeam().get(2));
+        assertEquals(lapras, pokemonTeam.getPokemonTeam().get(3));
     }
 }

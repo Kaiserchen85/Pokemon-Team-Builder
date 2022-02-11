@@ -26,7 +26,8 @@ public class TeamBuilderApp {
 
         initialize();
 
-        System.out.println("Hello! Welcome to the Pokemon Team Builder App!");
+        System.out.println("Hello! Welcome to the Pokemon Team Builder App where you can build teams of Pokemon!"
+                + "(Up to 6 Pokemon per team of course, can't be breaking this rule!)");
         System.out.println("Let's start by naming your team! Please enter a name for your team:");
         command = input.next();
         pokemonTeam.changeName(command);
@@ -125,11 +126,13 @@ public class TeamBuilderApp {
         boolean wantAddMoves = true;
         System.out.println("Please enter a move:");
         String move = input.next();
+        move = move.toUpperCase();
         pokemon.addMove(move);
         while (pokemon.getMoves().size() < 4 && wantAddMoves) {
             System.out.println("Please enter a move:");
             System.out.println("If you want to stop adding moves now, please input: stop");
             move = input.next();
+            move = move.toUpperCase();
             if (move.equalsIgnoreCase("stop")) {
                 wantAddMoves = false;
             } else {
@@ -206,11 +209,12 @@ public class TeamBuilderApp {
     private void infoMenu() {
         System.out.println("Please select and enter:");
         System.out.println("\tv -> View Pokemon Team");
+        System.out.println("\ts -> Swap Pokemon Position");
         System.out.println("\ti -> Change Pokemon Item");
         System.out.println("\ta -> Add Pokemon Move");
         System.out.println("\tr -> Remove Pokemon Move");
         System.out.println("\tt -> Change Pokemon Typing");
-        System.out.println("\ts -> Change Pokemon Stats");
+        System.out.println("\tu -> Update Pokemon Stats");
         System.out.println("\tq -> Quit this Menu");
     }
 
@@ -218,20 +222,20 @@ public class TeamBuilderApp {
     private void processInfoMenuCommand(String command) {
         if (command.equals("v")) {
             displayPokemonTeam();
+        } else if (command.equals("s")) {
+            pokemonTeam.swapPokemon(pickPokemon(), pickPokemon());
+            displayPokemonTeam();
+            System.out.println("Done!");
         } else if (command.equals("i")) {
             addingItem(pokemonTeam.getPokemonTeam().get(pickPokemon()));
         } else if (command.equals("a")) {
             int index = pickPokemon();
-            if (pokemonTeam.getPokemonTeam().get(index).getMoves().size() == 4) {
-                System.out.println("This Pokemon cannot learn any more moves!");
-            } else {
-                addPokemonMoves(pokemonTeam.getPokemonTeam().get(index));
-            }
+            setupForAddMoves(index);
         } else if (command.equals("r")) {
             removePokemonMove(pokemonTeam.getPokemonTeam().get(pickPokemon()));
         } else if (command.equals("t")) {
             changingType(pokemonTeam.getPokemonTeam().get(pickPokemon()));
-        } else if (command.equals("s")) {
+        } else if (command.equals("u")) {
             updateBaseStatTotal(pokemonTeam.getPokemonTeam().get(pickPokemon()));
         } else {
             System.out.println("That wasn't one of the choices I gave...");
@@ -245,7 +249,7 @@ public class TeamBuilderApp {
         displayPokemonTeam();
         int pokemonNumber = 0;
         while (invalidPokemonIndex) {
-            System.out.println("Which Pokemon would you like to change up?");
+            System.out.println("Which Pokemon would you like to select?");
             pokemonNumber = input.nextInt();
             if (pokemonNumber >= pokemonTeam.getPokemonTeam().size()) {
                 System.out.println("Sorry, that's invalid... try again.");
@@ -256,12 +260,25 @@ public class TeamBuilderApp {
         return pokemonNumber;
     }
 
+    //REQUIRES: Int must be >=0.
+    //MODIFIES: This
+    //EFFECTS: Checks whether the selected Pokemon has free move slots available.
+    //         Adds move if there are slots available.
+    private void setupForAddMoves(int index) {
+        if (pokemonTeam.getPokemonTeam().get(index).getMoves().size() == 4) {
+            System.out.println("This Pokemon cannot learn any more moves!");
+        } else {
+            addPokemonMoves(pokemonTeam.getPokemonTeam().get(index));
+        }
+    }
+
     //MODIFIES: This
     //EFFECTS: Removes move from given Pokemon if it knows the move.
     private void removePokemonMove(Pokemon pokemon) {
         System.out.println(pokemon.getMoves().toString());
         System.out.println("Which move do you want to remove?");
         String move = input.next();
+        move = move.toUpperCase();
         if (pokemon.removeMove(move)) {
             System.out.println("1.. 2.. 3.. Tada! Your Pokemon forgot " + move + "!");
         } else {

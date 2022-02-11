@@ -6,7 +6,7 @@ public class PokemonTeam {
     private String teamName;
     private ArrayList<Pokemon> pokemonTeam;
 
-    //EFFECTS: name of team is set to name, team has no pokemon.
+    //EFFECTS: name of team is set to given name, team has no Pokemon.
     public PokemonTeam(String teamName) {
         this.teamName = teamName;
         pokemonTeam = new ArrayList<>();
@@ -37,7 +37,6 @@ public class PokemonTeam {
         return false;
     }
 
-    //MODIFIES: This
     //EFFECTS: Outputs the total base stats of all 6 Pokemon.
     public int getStatTotalOfTeam() {
         int statTotal = 0;
@@ -47,9 +46,15 @@ public class PokemonTeam {
         return statTotal;
     }
 
-    //public void swapPokemon(int swap1, int swap2) {
-
-    //}
+    //REQUIRES: Both int must be >=0.
+    //MODIFIES: This
+    //EFFECTS: Switches the Pokemon that are assigned to the input integers.
+    public void swapPokemon(int swap1, int swap2) {
+        Pokemon switch1 = pokemonTeam.get(swap1);
+        Pokemon switch2 = pokemonTeam.get(swap2);
+        pokemonTeam.set(swap1, switch2);
+        pokemonTeam.set(swap2, switch1);
+    }
 
     public String getTeamName() {
         return teamName;
