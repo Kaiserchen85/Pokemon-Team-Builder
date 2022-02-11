@@ -64,7 +64,7 @@ public class Pokemon {
     //MODIFIES: This
     //EFFECTS: Adds typing to Pokemon.
     public void addTyping(String primaryType, String secondaryType) {
-        if (primaryType.equals("None") && !secondaryType.equals("None")) {
+        if (primaryType.equals("None")) {
             type1 = secondaryType;
             type2 = "None";
         } else {
