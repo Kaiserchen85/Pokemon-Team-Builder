@@ -108,6 +108,13 @@ class PokemonTest {
     }
 
     @Test
+    public void addNoneTwiceTypingTest() {
+        pokemon.addTyping("None", "None");
+        assertEquals("None", pokemon.getPrimaryType());
+        assertEquals("None", pokemon.getSecondaryType());
+    }
+
+    @Test
     public void addStatsTest() {
         pokemon.setBaseStatTotal(450);
         assertEquals(450, pokemon.getBaseStatTotal());
