@@ -3,6 +3,7 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
+// Represents a Pokemon having a name, list of learnt moves, item, typing and base stat total.
 public class Pokemon {
     private String name;
     private List<String> moves;

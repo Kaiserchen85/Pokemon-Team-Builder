@@ -2,6 +2,7 @@ package model;
 
 import java.util.ArrayList;
 
+//Represents a Pokemon Team with a team name and a list of Pokemon (up to 6 in the team).
 public class PokemonTeam {
     private String teamName;
     private ArrayList<Pokemon> pokemonTeam;

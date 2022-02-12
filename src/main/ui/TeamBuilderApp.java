@@ -8,7 +8,7 @@ import java.util.Locale;
 import java.util.Scanner;
 
 //Reference code from TellerApp application.
-
+//Pokemon Team Builder Application
 public class TeamBuilderApp {
     private PokemonTeam pokemonTeam;
     private Scanner input;
