@@ -1,0 +1,34 @@
+{
+    "pokemon team list": [{
+        "team name": "asdf",
+        "pokemon team": [
+            {
+                "secondaryType": "g",
+                "item": "er",
+                "primaryType": "f",
+                "moves": [
+                    "SDFG",
+                    "SDF",
+                    "GDFG",
+                    "FD"
+                ],
+                "baseStatTotal": 234,
+                "name": "wq"
+            },
+            {
+                "secondaryType": "gsdfg",
+                "item": "wert",
+                "primaryType": "sdf",
+                "moves": [
+                    "XVB",
+                    "XVCB",
+                    "FDG",
+                    "S"
+                ],
+                "baseStatTotal": 3214,
+                "name": "qwer"
+            }
+        ]
+    }],
+    "name": "Work Room"
+}

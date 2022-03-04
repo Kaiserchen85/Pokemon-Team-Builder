@@ -1,0 +1,30 @@
+{
+    "pokemon team list": [{
+        "team name": "Team A",
+        "pokemon team": [
+            {
+                "secondaryType": "Grass",
+                "item": "Life Orb",
+                "primaryType": "Fire",
+                "moves": [
+                    "Thunder",
+                    "Thunderbolt"
+                ],
+                "baseStatTotal": 144,
+                "name": "Jolteon"
+            },
+            {
+                "secondaryType": "Grass",
+                "item": "Leftovers",
+                "primaryType": "Water",
+                "moves": [
+                    "Flamethrower",
+                    "Ember"
+                ],
+                "baseStatTotal": 144,
+                "name": "Flareon"
+            }
+        ]
+    }],
+    "name": "My work room"
+}
