@@ -8,8 +8,9 @@ import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-//References JsonSerializationDemo
+//References JsonSerializationDemo JsonTest test class.
 public class JsonTest {
+
     protected void checkPokemonTeam(String name, ArrayList<Pokemon> pokemonList, PokemonTeam pokemonTeam) {
         assertEquals(name, pokemonTeam.getTeamName());
         int index = 0;

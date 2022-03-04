@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-//References JsonSerializationDemo
+//References JsonSerializationDemo WorkRoom model class.
 // Represents a workroom having a collection of Pokemon Teams.
 public class WorkRoom implements Writable {
     private String name;
@@ -24,28 +24,29 @@ public class WorkRoom implements Writable {
         return name;
     }
 
-    // MODIFIES: this
+    // MODIFIES: This
     // EFFECTS: Adds Pokemon Team to this workroom.
     public void addPokemonTeam(PokemonTeam pokemonTeam) {
         pokemonTeamList.add(pokemonTeam);
     }
 
-    // MODIFIES: this
-    // EFFECTS: clears list of Pokemon Teams.
+    // MODIFIES: This
+    // EFFECTS: Clears list of Pokemon Teams.
     public void resetPokemonTeam() {
         pokemonTeamList.clear();
     }
 
-    // EFFECTS: Returns an unmodifiable list of Pokemon Teams in this workroom
+    // EFFECTS: Returns an unmodifiable list of Pokemon Teams in this workroom.
     public List<PokemonTeam> getPokemonTeamList() {
         return Collections.unmodifiableList(pokemonTeamList);
     }
 
-    // EFFECTS: Returns number of Pokemon Teams in this workroom
+    // EFFECTS: Returns number of Pokemon Teams in this workroom.
     public int numPokemonTeams() {
         return pokemonTeamList.size();
     }
 
+    //EFFECTS: Returns workroom as a JSONObject.
     @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
@@ -54,7 +55,7 @@ public class WorkRoom implements Writable {
         return json;
     }
 
-    // EFFECTS: Returns Pokemon Teams in this workroom as a JSON array
+    // EFFECTS: Returns Pokemon Teams in this workroom as a JSON array.
     private JSONArray pokemonTeamsToJson() {
         JSONArray jsonArray = new JSONArray();
 

@@ -12,36 +12,34 @@ import java.util.stream.Stream;
 
 import org.json.*;
 
-//References JsonSerializationDemo
-// Represents a reader that reads workroom from JSON data stored in file
+//References JsonSerializationDemo JsonReader class.
+// Represents a reader that reads workroom from JSON data stored in file.
 public class JsonReader {
     private String source;
 
-    // EFFECTS: Constructs reader to read from source file
+    // EFFECTS: Constructs reader to read from source file.
     public JsonReader(String source) {
         this.source = source;
     }
 
     // EFFECTS: Reads workroom from file and returns it;
-    // throws IOException if an error occurs reading data from file
+    // throws IOException if an error occurs reading data from file.
     public WorkRoom read() throws IOException {
         String jsonData = readFile(source);
         JSONObject jsonObject = new JSONObject(jsonData);
         return parseWorkRoom(jsonObject);
     }
 
-    // EFFECTS: Reads source file as string and returns it
+    // EFFECTS: Reads source file as string and returns it.
     private String readFile(String source) throws IOException {
         StringBuilder contentBuilder = new StringBuilder();
-
         try (Stream<String> stream = Files.lines(Paths.get(source), StandardCharsets.UTF_8)) {
             stream.forEach(s -> contentBuilder.append(s));
         }
-
         return contentBuilder.toString();
     }
 
-    // EFFECTS: Parses workroom from JSON object and returns it
+    // EFFECTS: Parses workroom from JSON object and returns it.
     private WorkRoom parseWorkRoom(JSONObject jsonObject) {
         String name = jsonObject.getString("name");
         WorkRoom wr = new WorkRoom(name);
@@ -50,17 +48,17 @@ public class JsonReader {
     }
 
     // MODIFIES: wr
-    // EFFECTS: Parses Pokemon Teams from JSON object and adds them to workroom
+    // EFFECTS: Parses Pokemon Teams from JSON object and adds them to workroom.
     private void addPokemonTeams(WorkRoom wr, JSONObject jsonObject) {
         JSONArray jsonArray = jsonObject.getJSONArray("pokemon team list");
         for (Object json : jsonArray) {
-            JSONObject nextThingy = (JSONObject) json;
-            addPokemonTeam(wr, nextThingy);
+            JSONObject nextPokemonTeam = (JSONObject) json;
+            addPokemonTeam(wr, nextPokemonTeam);
         }
     }
 
     // MODIFIES: wr
-    // EFFECTS: Parses Pokemon Team from JSON object and adds it to workroom
+    // EFFECTS: Parses Pokemon Team from JSON object and adds it to workroom.
     private void addPokemonTeam(WorkRoom wr, JSONObject jsonObject) {
         String name = jsonObject.getString("team name");
         PokemonTeam pokemonTeam = new PokemonTeam(name);

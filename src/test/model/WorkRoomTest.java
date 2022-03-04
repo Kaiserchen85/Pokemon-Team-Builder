@@ -9,7 +9,7 @@ public class WorkRoomTest {
     private WorkRoom wr;
 
     @BeforeEach
-    private void setup() {
+    public void setup() {
         wr = new WorkRoom("A");
     }
 

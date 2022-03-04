@@ -5,7 +5,7 @@ import persistence.Writable;
 
 import java.util.ArrayList;
 
-//References JsonSerializationDemo
+//References JsonSerializationDemo Thingy class.
 //Represents a Pokemon Team with a team name and a list of Pokemon (up to 6 in the team).
 public class PokemonTeam implements Writable {
     private String teamName;

@@ -10,7 +10,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
 
-//Reference code from TellerApp application.
+//Reference code from TellerApp application and JsonSerializationDemo WorkRoom application.
 //Pokemon Team Builder Application
 public class TeamBuilderApp {
     private static final String JSON_STORE = "./data/myFile.txt";
@@ -58,7 +58,7 @@ public class TeamBuilderApp {
     }
 
     //MODIFIES: This
-    //EFFECTS: Initializes Pokemon team
+    //EFFECTS: Initializes Pokemon Team and workroom
     private void initialize() {
         pokemonTeam = new PokemonTeam("");
         input = new Scanner(System.in);
@@ -308,7 +308,7 @@ public class TeamBuilderApp {
         }
     }
 
-    // EFFECTS: Saves the workroom to file
+    // EFFECTS: Saves the workroom to file.
     private void saveWorkRoom() {
         try {
             workRoom.resetPokemonTeam();
@@ -322,8 +322,8 @@ public class TeamBuilderApp {
         }
     }
 
-    // MODIFIES: this
-    // EFFECTS: Loads workroom from file
+    // MODIFIES: This
+    // EFFECTS: Loads workroom from file.
     private void loadWorkRoom() {
         try {
             workRoom = jsonReader.read();
