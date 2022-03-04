@@ -1,5 +1,6 @@
 package persistence;
 
+import model.Pokemon;
 import model.PokemonTeam;
 import model.WorkRoom;
 import org.junit.jupiter.api.Test;
@@ -46,7 +47,15 @@ class JsonWriterTest extends JsonTest {
     void testWriterGeneralWorkroom() {
         try {
             WorkRoom wr = new WorkRoom("My work room");
-            wr.addPokemonTeam(new PokemonTeam("Team A"));
+            PokemonTeam pokemonTeam = new PokemonTeam("Team A");
+            Pokemon jolteon = new Pokemon("Jolteon");
+            jolteon.addItem("Life Orb");
+            jolteon.addTyping("Fire", "Grass");
+            jolteon.setBaseStatTotal(144);
+            jolteon.addMove("Thunder");
+            jolteon.addMove("Thunderbolt");
+            pokemonTeam.addPokemon(jolteon);
+            wr.addPokemonTeam(pokemonTeam);
             JsonWriter writer = new JsonWriter("./data/testWriterGeneralWorkroom.json");
             writer.open();
             writer.write(wr);
@@ -56,8 +65,8 @@ class JsonWriterTest extends JsonTest {
             wr = reader.read();
             assertEquals("My work room", wr.getName());
             List<PokemonTeam> pokemonTeamList = wr.getPokemonTeamList();
-            assertEquals(1, pokemonTeamList.size());
-            checkThingy("Team A", pokemonTeamList.get(0));
+            assertEquals(1, wr.numPokemonTeams());
+            checkPokemonTeam("Team A", pokemonTeam.getPokemonTeam(), pokemonTeamList.get(0));
 
         } catch (IOException e) {
             fail("Exception should not have been thrown");
