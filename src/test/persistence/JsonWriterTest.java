@@ -55,6 +55,13 @@ class JsonWriterTest extends JsonTest {
             jolteon.addMove("Thunder");
             jolteon.addMove("Thunderbolt");
             pokemonTeam.addPokemon(jolteon);
+            Pokemon flareon = new Pokemon("Flareon");
+            flareon.addItem("Leftovers");
+            flareon.addTyping("Water", "Grass");
+            flareon.setBaseStatTotal(144);
+            flareon.addMove("Flamethrower");
+            flareon.addMove("Ember");
+            pokemonTeam.addPokemon(flareon);
             wr.addPokemonTeam(pokemonTeam);
             JsonWriter writer = new JsonWriter("./data/testWriterGeneralWorkroom.txt");
             writer.open();

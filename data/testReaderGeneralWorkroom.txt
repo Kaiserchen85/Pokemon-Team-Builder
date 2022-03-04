@@ -1,17 +1,30 @@
 {
     "pokemon team list": [{
         "team name": "Team A",
-        "pokemon team": [{
-            "secondaryType": "Grass",
-            "item": "Life Orb",
-            "moves": [
-                "Thunder",
-                "Thunderbolt"
-            ],
-            "primaryType": "Fire",
-            "baseStatTotal": 144,
-            "name": "Jolteon"
-        }]
+        "pokemon team": [
+            {
+                "secondaryType": "Grass",
+                "item": "Life Orb",
+                "moves": [
+                    "Thunder",
+                    "Thunderbolt"
+                ],
+                "primaryType": "Fire",
+                "baseStatTotal": 144,
+                "name": "Jolteon"
+            },
+            {
+                "secondaryType": "Grass",
+                "item": "Leftovers",
+                "moves": [
+                    "Flamethrower",
+                    "Ember"
+                ],
+                "primaryType": "Water",
+                "baseStatTotal": 144,
+                "name": "Flareon"
+            }
+        ]
     }],
     "name": "My work room"
 }

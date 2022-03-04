@@ -22,6 +22,7 @@ public class JsonTest {
             assertEquals(p.getSecondaryType(), test.getSecondaryType());
             assertEquals(p.getMoves(), test.getMoves());
             assertEquals(p.getBaseStatTotal(), test.getBaseStatTotal());
+            index++;
         }
     }
 }
