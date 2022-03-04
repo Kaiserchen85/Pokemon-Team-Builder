@@ -2,16 +2,24 @@ package ui;
 
 import model.Pokemon;
 import model.PokemonTeam;
+import model.WorkRoom;
+import persistence.JsonReader;
+import persistence.JsonWriter;
 
-import java.util.ArrayList;
-import java.util.Locale;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 
 //Reference code from TellerApp application.
 //Pokemon Team Builder Application
 public class TeamBuilderApp {
+    private static final String JSON_STORE = "./data/workroom.json";
+
     private PokemonTeam pokemonTeam;
     private Scanner input;
+    private WorkRoom workRoom;
+    private JsonWriter jsonWriter;
+    private JsonReader jsonReader;
 
     //EFFECTS: Runs the team builder application
     public TeamBuilderApp() {
@@ -55,6 +63,9 @@ public class TeamBuilderApp {
         pokemonTeam = new PokemonTeam("");
         input = new Scanner(System.in);
         input.useDelimiter("\n");
+        workRoom = new WorkRoom("Work Room");
+        jsonWriter = new JsonWriter(JSON_STORE);
+        jsonReader = new JsonReader(JSON_STORE);
     }
 
     //EFFECTS: Displays menu of options for users about the Pokemon Team
@@ -64,6 +75,8 @@ public class TeamBuilderApp {
         System.out.println("\tr -> Remove Pokemon");
         System.out.println("\tc -> Change Team Name");
         System.out.println("\ti -> Get Info on Team");
+        System.out.println("\ts -> Save Pokemon Team");
+        System.out.println("\tl -> Load Pokemon Team");
         System.out.println("\tq -> Quit");
     }
 
@@ -78,6 +91,10 @@ public class TeamBuilderApp {
             changingName();
         } else if (command.equals("i")) {
             getInfo();
+        } else if (command.equals("s")) {
+            saveWorkRoom();
+        } else if (command.equals("l")) {
+            loadWorkRoom();
         } else {
             System.out.println("That wasn't one of the choices I gave...");
             System.out.println("Let's try again!");
@@ -290,4 +307,32 @@ public class TeamBuilderApp {
             }
         }
     }
+
+    // EFFECTS: Saves the workroom to file
+    private void saveWorkRoom() {
+        try {
+            workRoom.resetPokemonTeam();
+            workRoom.addPokemonTeam(pokemonTeam);
+            jsonWriter.open();
+            jsonWriter.write(workRoom);
+            jsonWriter.close();
+            System.out.println("Saved " + workRoom.getName() + " to " + JSON_STORE + "!");
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to write to file: " + JSON_STORE + "!");
+        }
+    }
+
+    // MODIFIES: this
+    // EFFECTS: Loads workroom from file
+    private void loadWorkRoom() {
+        try {
+            workRoom = jsonReader.read();
+            System.out.println("Loaded " + workRoom.getName() + " from " + JSON_STORE + "!");
+            workRoom.addPokemonTeam(pokemonTeam);
+            pokemonTeam = workRoom.getPokemonTeamList().get(0);
+        } catch (IOException e) {
+            System.out.println("Unable to read from file: " + JSON_STORE + "!");
+        }
+    }
+
 }

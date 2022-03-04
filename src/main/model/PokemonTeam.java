@@ -1,9 +1,13 @@
 package model;
 
+import org.json.JSONObject;
+import persistence.Writable;
+
 import java.util.ArrayList;
 
+//References JsonSerializationDemo
 //Represents a Pokemon Team with a team name and a list of Pokemon (up to 6 in the team).
-public class PokemonTeam {
+public class PokemonTeam implements Writable {
     private String teamName;
     private ArrayList<Pokemon> pokemonTeam;
 
@@ -63,5 +67,14 @@ public class PokemonTeam {
 
     public ArrayList<Pokemon> getPokemonTeam() {
         return pokemonTeam;
+    }
+
+    @Override
+    // EFFECTS: Returns Pokemon Team as JSON object
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("team name", teamName);
+        json.put("pokemon team", pokemonTeam);
+        return json;
     }
 }
