@@ -13,7 +13,7 @@ import java.util.Scanner;
 //Reference code from TellerApp application.
 //Pokemon Team Builder Application
 public class TeamBuilderApp {
-    private static final String JSON_STORE = "./data/workroom.json";
+    private static final String JSON_STORE = "./data/myFile.txt";
 
     private PokemonTeam pokemonTeam;
     private Scanner input;

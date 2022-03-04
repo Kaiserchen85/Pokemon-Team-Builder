@@ -17,7 +17,7 @@ class JsonWriterTest extends JsonTest {
     void testWriterInvalidFile() {
         try {
             WorkRoom wr = new WorkRoom("My work room");
-            JsonWriter writer = new JsonWriter("./data/my\0illegal:fileName.json");
+            JsonWriter writer = new JsonWriter("./data/my\0illegal:fileName.txt");
             writer.open();
             fail("IOException was expected");
         } catch (IOException e) {
@@ -29,12 +29,12 @@ class JsonWriterTest extends JsonTest {
     void testWriterEmptyWorkroom() {
         try {
             WorkRoom wr = new WorkRoom("My work room");
-            JsonWriter writer = new JsonWriter("./data/testWriterEmptyWorkroom.json");
+            JsonWriter writer = new JsonWriter("./data/testWriterEmptyWorkroom.txt");
             writer.open();
             writer.write(wr);
             writer.close();
 
-            JsonReader reader = new JsonReader("./data/testWriterEmptyWorkroom.json");
+            JsonReader reader = new JsonReader("./data/testWriterEmptyWorkroom.txt");
             wr = reader.read();
             assertEquals("My work room", wr.getName());
             assertEquals(0, wr.numPokemonTeams());
@@ -56,12 +56,12 @@ class JsonWriterTest extends JsonTest {
             jolteon.addMove("Thunderbolt");
             pokemonTeam.addPokemon(jolteon);
             wr.addPokemonTeam(pokemonTeam);
-            JsonWriter writer = new JsonWriter("./data/testWriterGeneralWorkroom.json");
+            JsonWriter writer = new JsonWriter("./data/testWriterGeneralWorkroom.txt");
             writer.open();
             writer.write(wr);
             writer.close();
 
-            JsonReader reader = new JsonReader("./data/testWriterGeneralWorkroom.json");
+            JsonReader reader = new JsonReader("./data/testWriterGeneralWorkroom.txt");
             wr = reader.read();
             assertEquals("My work room", wr.getName());
             List<PokemonTeam> pokemonTeamList = wr.getPokemonTeamList();
