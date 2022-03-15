@@ -55,6 +55,7 @@ public class TeamBuilderApp {
         }
 
         System.out.println("Thank you for visiting! See you next time!");
+        System.out.println("This is Pahse 3");
     }
 
     //MODIFIES: This
