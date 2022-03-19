@@ -1,5 +1,6 @@
 # Kaiser Chen's Project
-
+fix the error! in savebutton
+fix pokemon clear moves
 ## Pokemon Creator and Team Builder
 
 **What does this application do?**

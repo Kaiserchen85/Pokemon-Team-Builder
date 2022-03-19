@@ -1,34 +1,18 @@
 {
     "pokemon team list": [{
-        "team name": "asdf",
-        "pokemon team": [
-            {
-                "secondaryType": "g",
-                "item": "er",
-                "primaryType": "f",
-                "moves": [
-                    "SDFG",
-                    "SDF",
-                    "GDFG",
-                    "FD"
-                ],
-                "baseStatTotal": 234,
-                "name": "wq"
-            },
-            {
-                "secondaryType": "gsdfg",
-                "item": "wert",
-                "primaryType": "sdf",
-                "moves": [
-                    "XVB",
-                    "XVCB",
-                    "FDG",
-                    "S"
-                ],
-                "baseStatTotal": 3214,
-                "name": "qwer"
-            }
-        ]
+        "team name": "Team 1",
+        "pokemon team": [{
+            "secondaryType": "Pig",
+            "item": "Scarf",
+            "primaryType": "Fat",
+            "moves": [
+                "Britney",
+                "Spears",
+                ""
+            ],
+            "baseStatTotal": 23,
+            "name": "Ant"
+        }]
     }],
     "name": "Work Room"
 }
