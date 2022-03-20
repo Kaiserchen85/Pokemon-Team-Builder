@@ -58,7 +58,7 @@ public class MainWindow extends JFrame {
 
     // MODIFIES: this
     // EFFECTS:  declares and instantiates a Drawing (newDrawing), and adds it to drawings
-    private void addNewDrawing() {
+    public void addNewDrawing() {
         TeamDesign newDrawing = new TeamDesign(pokemonTeam);
         teamDesign = newDrawing;
         add(newDrawing, BorderLayout.CENTER);
@@ -71,11 +71,12 @@ public class MainWindow extends JFrame {
         JPanel toolArea = new JPanel();
         toolArea.setLayout(new GridLayout(0,1));
         toolArea.setSize(new Dimension(0, 0));
-        JButton addPkmnButton = new AddPokemonButton("Add Pokemon", pokemonTeam);
+        JButton addPkmnButton = new AddPokemonButton("Add Pokemon", pokemonTeam, this);
         JButton removePkmnButton = new RemovePokemonButton("Remove Pokemon", pokemonTeam);
         JButton saveButton = new SaveButton("Save", pokemonTeam);
-        JButton loadButton = new LoadButton("Load", pokemonTeam);
+        JButton loadButton = new LoadButton("Load", pokemonTeam, this);
         toolArea.add(addPkmnButton);
+        toolArea.add(removePkmnButton);
         toolArea.add(saveButton);
         toolArea.add(loadButton);
         add(toolArea, BorderLayout.SOUTH);
@@ -92,6 +93,10 @@ public class MainWindow extends JFrame {
         jpanel.add(button);
         jpanel.add(teamNameLabel);
         return jpanel;
+    }
+
+    public void setPokemonTeam(PokemonTeam pokemonTeam) {
+        this.pokemonTeam = pokemonTeam;
     }
 
     private class ChangeTeamNameListener implements ActionListener {

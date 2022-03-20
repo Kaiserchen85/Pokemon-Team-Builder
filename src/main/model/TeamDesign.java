@@ -14,30 +14,26 @@ public class TeamDesign extends JPanel {
         settingUp();
     }
 
-    @Override
-    public void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        add(settingUp());
-    }
-
-    public JPanel settingUp() {
+    public void settingUp() {
         JPanel jpanel = new JPanel();
         jpanel.setLayout(new GridLayout(3,2));
-        jpanel.setSize(new Dimension(0, 0));
+        jpanel.setSize(new Dimension(200, 200));
         for (int i = 0; i < pokemonTeam.getPokemonTeam().size(); i++) {
-            setUpPokemon(pokemonTeam.getPokemonTeam().get(0));
             jpanel.add(setUpPokemon(pokemonTeam.getPokemonTeam().get(0)));
         }
-        return jpanel;
+        add(jpanel);
     }
 
-    public JPanel setUpPokemon(Pokemon pokemon) {
-        JPanel jpanel = new JPanel();
-        jpanel.add(new JLabel("Pokemon Name: " + pokemon.getName()));
-        jpanel.add(new JLabel("Item: " + pokemon.getItem()));
-        jpanel.add(new JLabel("Typings: " + pokemon.getPrimaryType() + "/" + pokemon.getSecondaryType()));
-        jpanel.add(new JLabel("Moves: " + pokemon.getMoves()));
-        jpanel.add(new JLabel("Base Stat Total: " + pokemon.getBaseStatTotal()));
-        return jpanel;
+    public JButton setUpPokemon(Pokemon pokemon) {
+        JButton jbutton = new JButton();
+        jbutton.setBorderPainted(true);
+        jbutton.setFocusPainted(true);
+        jbutton.setContentAreaFilled(true);
+        jbutton.add(new JLabel("Pokemon Name: " + pokemon.getName()));
+        jbutton.add(new JLabel("Item: " + pokemon.getItem()));
+        jbutton.add(new JLabel("Typings: " + pokemon.getPrimaryType() + "/" + pokemon.getSecondaryType()));
+        jbutton.add(new JLabel("Moves: " + pokemon.getMoves()));
+        jbutton.add(new JLabel("Base Stat Total: " + pokemon.getBaseStatTotal()));
+        return jbutton;
     }
 }

@@ -16,12 +16,14 @@ public class LoadButton extends JButton {
     private static final String JSON_STORE = "./data/myFile.txt";
 
     private PokemonTeam pokemonTeam;
+    private MainWindow mainWindow;
     private WorkRoom workRoom;
     private JsonReader jsonReader;
 
-    public LoadButton(String label, PokemonTeam pokemonTeam) {
+    public LoadButton(String label, PokemonTeam pokemonTeam, MainWindow mainWindow) {
         super(label);
         this.pokemonTeam = pokemonTeam;
+        this.mainWindow = mainWindow;
         workRoom = new WorkRoom("Work Room");
         jsonReader = new JsonReader(JSON_STORE);
         setBorderPainted(true);
@@ -41,6 +43,11 @@ public class LoadButton extends JButton {
                 workRoom = jsonReader.read();
                 workRoom.addPokemonTeam(pokemonTeam);
                 pokemonTeam = workRoom.getPokemonTeamList().get(0);
+                mainWindow.remove(mainWindow.getTeamDesign());
+                mainWindow.setPokemonTeam(pokemonTeam);
+                mainWindow.addNewDrawing();
+                mainWindow.revalidate();
+                mainWindow.repaint();
             } catch (IOException exception) {
                 System.out.println("Error!");
             }

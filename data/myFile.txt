@@ -1,18 +1,77 @@
 {
     "pokemon team list": [{
-        "team name": "Team 1",
-        "pokemon team": [{
-            "secondaryType": "Pig",
-            "item": "Scarf",
-            "primaryType": "Fat",
-            "moves": [
-                "Britney",
-                "Spears",
-                ""
-            ],
-            "baseStatTotal": 23,
-            "name": "Ant"
-        }]
+        "team name": "123",
+        "pokemon team": [
+            {
+                "secondaryType": "qwew",
+                "item": "ghj",
+                "moves": [
+                    "qwe",
+                    ""
+                ],
+                "primaryType": "wqeui",
+                "baseStatTotal": 12,
+                "name": "asdf"
+            },
+            {
+                "secondaryType": "o",
+                "item": "asdf",
+                "moves": [
+                    "i",
+                    "ij",
+                    "kj",
+                    "nm"
+                ],
+                "primaryType": "ghj",
+                "baseStatTotal": 46,
+                "name": "wqe"
+            },
+            {
+                "secondaryType": ",",
+                "item": "iyu",
+                "moves": [
+                    "nm",
+                    ""
+                ],
+                "primaryType": "hjk",
+                "baseStatTotal": 8,
+                "name": "qwe"
+            },
+            {
+                "secondaryType": "fasjkl",
+                "item": "dsjk",
+                "moves": [
+                    "afdshjk",
+                    "jk",
+                    "jkl"
+                ],
+                "primaryType": "dkajl",
+                "baseStatTotal": 213,
+                "name": "qwee"
+            },
+            {
+                "secondaryType": "78",
+                "item": "uio",
+                "moves": [
+                    "qwe",
+                    ""
+                ],
+                "primaryType": "23",
+                "baseStatTotal": 5,
+                "name": "qwke"
+            },
+            {
+                "secondaryType": "io",
+                "item": "sf",
+                "moves": [
+                    "wqe",
+                    ""
+                ],
+                "primaryType": "df",
+                "baseStatTotal": 6,
+                "name": "qwe"
+            }
+        ]
     }],
     "name": "Work Room"
 }

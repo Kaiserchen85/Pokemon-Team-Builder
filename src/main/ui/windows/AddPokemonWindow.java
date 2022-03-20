@@ -16,6 +16,7 @@ public class AddPokemonWindow extends JFrame implements ActionListener {
     public static final int HEIGHT = 700;
 
     private PokemonTeam pokemonTeam;
+    private MainWindow mainWindow;
     private JTextField pokemonName;
     private JTextField item;
     private JTextField primaryType;
@@ -26,9 +27,10 @@ public class AddPokemonWindow extends JFrame implements ActionListener {
     private JTextField move4;
     private JTextField baseStatTotal;
 
-    public AddPokemonWindow(PokemonTeam pokemonTeam) {
+    public AddPokemonWindow(PokemonTeam pokemonTeam, MainWindow mainWindow) {
         super("Pokemon Maker");
         this.pokemonTeam = pokemonTeam;
+        this.mainWindow = mainWindow;
         setPreferredSize(new Dimension(WIDTH, HEIGHT));
         ((JPanel) getContentPane()).setBorder(new EmptyBorder(13, 13, 13, 13));
         setLayout(new GridLayout(0, 1));
@@ -51,7 +53,11 @@ public class AddPokemonWindow extends JFrame implements ActionListener {
         pokemon.addMove(move4.getText());
         pokemon.setBaseStatTotal(Integer.parseInt(baseStatTotal.getText()));
         pokemonTeam.addPokemon(pokemon);
-        new MainWindow();
+        mainWindow.remove(mainWindow.getTeamDesign());
+        mainWindow.setPokemonTeam(pokemonTeam);
+        mainWindow.addNewDrawing();
+        mainWindow.revalidate();
+        mainWindow.repaint();
         dispose();
     }
 

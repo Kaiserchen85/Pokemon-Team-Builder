@@ -11,10 +11,12 @@ import java.awt.event.ActionListener;
 
 public class AddPokemonButton extends JButton {
     private PokemonTeam pokemonTeam;
+    private MainWindow mainWindow;
 
-    public AddPokemonButton(String label, PokemonTeam pokemonTeam) {
+    public AddPokemonButton(String label, PokemonTeam pokemonTeam, MainWindow mainWindow) {
         super(label);
         this.pokemonTeam = pokemonTeam;
+        this.mainWindow = mainWindow;
         setBorderPainted(true);
         setFocusPainted(true);
         setContentAreaFilled(true);
@@ -28,7 +30,7 @@ public class AddPokemonButton extends JButton {
         @Override
         public void actionPerformed(ActionEvent e) {
             if (pokemonTeam.getPokemonTeam().size() < 6) {
-                new AddPokemonWindow(pokemonTeam);
+                new AddPokemonWindow(pokemonTeam, mainWindow);
             }
         }
     }
