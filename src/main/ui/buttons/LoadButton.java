@@ -3,13 +3,11 @@ package ui.buttons;
 import model.PokemonTeam;
 import model.WorkRoom;
 import persistence.JsonReader;
-import persistence.JsonWriter;
 import ui.windows.MainWindow;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class LoadButton extends JButton {
@@ -29,10 +27,10 @@ public class LoadButton extends JButton {
         setBorderPainted(true);
         setFocusPainted(true);
         setContentAreaFilled(true);
-        addActionListener(new SaveTeamListener());
+        addActionListener(new LoadTeamListener());
     }
 
-    private class SaveTeamListener implements ActionListener {
+    private class LoadTeamListener implements ActionListener {
 
         // EFFECTS: sets active tool to the shape tool
         //          called by the framework when the tool is clicked
@@ -42,12 +40,18 @@ public class LoadButton extends JButton {
             try {
                 workRoom = jsonReader.read();
                 workRoom.addPokemonTeam(pokemonTeam);
-                pokemonTeam = workRoom.getPokemonTeamList().get(0);
+                PokemonTeam cloneTeam = workRoom.getPokemonTeamList().get(0);
+                pokemonTeam.changeName(cloneTeam.getTeamName());
+                pokemonTeam.getPokemonTeam().clear();
+                for (int i = 0; i < cloneTeam.getPokemonTeam().size(); i++) {
+                    pokemonTeam.addPokemon(cloneTeam.getPokemonTeam().get(i));
+                }
                 mainWindow.remove(mainWindow.getTeamDesign());
-                mainWindow.setPokemonTeam(pokemonTeam);
                 mainWindow.addNewDrawing();
+                mainWindow.getTeamNameLabel().setText(pokemonTeam.getTeamName());
                 mainWindow.revalidate();
                 mainWindow.repaint();
+                mainWindow.getTeamDesign().setIsRemovingFalse();
             } catch (IOException exception) {
                 System.out.println("Error!");
             }

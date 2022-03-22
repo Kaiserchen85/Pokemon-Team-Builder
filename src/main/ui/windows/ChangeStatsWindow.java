@@ -14,8 +14,8 @@ public class ChangeStatsWindow extends JFrame implements ActionListener {
     public static final int WIDTH = 1000;
     public static final int HEIGHT = 700;
 
-    private PokemonTeam pokemonTeam;
-    private JTextField pokemonName;
+    private Pokemon pokemon;
+    private MainWindow mainWindow;
     private JTextField item;
     private JTextField primaryType;
     private JTextField secondaryType;
@@ -25,9 +25,18 @@ public class ChangeStatsWindow extends JFrame implements ActionListener {
     private JTextField move4;
     private JTextField baseStatTotal;
 
-    public ChangeStatsWindow(PokemonTeam pokemonTeam) {
+    public ChangeStatsWindow(Pokemon pokemon, MainWindow mainWindow) {
         super("Pokemon Maker");
-        this.pokemonTeam = pokemonTeam;
+        this.pokemon = pokemon;
+        this.mainWindow = mainWindow;
+        item = new JTextField();
+        primaryType = new JTextField();
+        secondaryType = new JTextField();
+        move1 = new JTextField();
+        move2 = new JTextField();
+        move3 = new JTextField();
+        move4 = new JTextField();
+        baseStatTotal = new JTextField();
         setPreferredSize(new Dimension(WIDTH, HEIGHT));
         ((JPanel) getContentPane()).setBorder(new EmptyBorder(13, 13, 13, 13));
         setLayout(new GridLayout(0, 1));
@@ -41,30 +50,31 @@ public class ChangeStatsWindow extends JFrame implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent e) {
-        Pokemon pokemon = new Pokemon(pokemonName.getText());
         pokemon.addItem(item.getText());
         pokemon.addTyping(primaryType.getText(), secondaryType.getText());
+        pokemon.getMoves().clear();
         pokemon.addMove(move1.getText());
         pokemon.addMove(move2.getText());
         pokemon.addMove(move3.getText());
         pokemon.addMove(move4.getText());
         pokemon.setBaseStatTotal(Integer.parseInt(baseStatTotal.getText()));
-        pokemonTeam.addPokemon(pokemon);
+        mainWindow.remove(mainWindow.getTeamDesign());
+        mainWindow.addNewDrawing();
+        mainWindow.revalidate();
+        mainWindow.repaint();
         dispose();
     }
 
     public void createTextFields() {
-        pokemonName = new JTextField();
-        item = new JTextField();
-        primaryType = new JTextField();
-        secondaryType = new JTextField();
-        move1 = new JTextField();
-        move2 = new JTextField();
-        move3 = new JTextField();
-        move4 = new JTextField();
-        baseStatTotal = new JTextField();
-        add(new JLabel("Pokemon Name:"));
-        add(pokemonName);
+        item.setText(pokemon.getItem());
+        primaryType.setText(pokemon.getPrimaryType());
+        secondaryType.setText(pokemon.getSecondaryType());
+        setMove(move1, 0);
+        setMove(move2, 1);
+        setMove(move3, 2);
+        setMove(move4, 3);
+        baseStatTotal.setText(Integer.toString(pokemon.getBaseStatTotal()));
+        add(new JLabel("Pokemon Name: " + pokemon.getName()));
         add(new JLabel("Item:"));
         add(item);
         add(new JLabel("Typing:"));
@@ -77,6 +87,12 @@ public class ChangeStatsWindow extends JFrame implements ActionListener {
         add(move4);
         add(new JLabel("Base Stat Total:"));
         add(baseStatTotal);
+    }
+
+    public void setMove(JTextField move, int index) {
+        if (index < pokemon.getMoves().size()) {
+            move.setText(pokemon.getMoves().get(index));
+        }
     }
 }
 

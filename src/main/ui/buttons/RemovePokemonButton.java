@@ -10,10 +10,12 @@ import java.awt.event.ActionListener;
 
 public class RemovePokemonButton extends JButton {
     private PokemonTeam pokemonTeam;
+    private MainWindow mainWindow;
 
-    public RemovePokemonButton(String label, PokemonTeam pokemonTeam) {
+    public RemovePokemonButton(String label, PokemonTeam pokemonTeam, MainWindow mainWindow) {
         super(label);
         this.pokemonTeam = pokemonTeam;
+        this.mainWindow = mainWindow;
         setBorderPainted(true);
         setFocusPainted(true);
         setContentAreaFilled(true);
@@ -26,9 +28,7 @@ public class RemovePokemonButton extends JButton {
         //          called by the framework when the tool is clicked
         @Override
         public void actionPerformed(ActionEvent e) {
-            if (pokemonTeam.getPokemonTeam().size() < 6) {
-                //stub
-            }
+            mainWindow.getTeamDesign().setIsRemovingTrue();
         }
     }
 }

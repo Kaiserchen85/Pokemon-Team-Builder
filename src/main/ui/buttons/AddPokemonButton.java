@@ -31,6 +31,7 @@ public class AddPokemonButton extends JButton {
         public void actionPerformed(ActionEvent e) {
             if (pokemonTeam.getPokemonTeam().size() < 6) {
                 new AddPokemonWindow(pokemonTeam, mainWindow);
+                mainWindow.getTeamDesign().setIsRemovingFalse();
             }
         }
     }

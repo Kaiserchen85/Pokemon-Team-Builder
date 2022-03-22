@@ -1,6 +1,13 @@
 # Kaiser Chen's Project
-fix the error! in savebutton
-fix pokemon clear moves
+Where does TeamDesign go?
+Tips for making tests?
+What two events count?
+Do we need variety with the interactions?
+Is the layout good enough for the visual component?
+How to use repaint?
+Confirm merging Phase 3 with master?
+Is the font slightly too small?
+
 ## Pokemon Creator and Team Builder
 
 **What does this application do?**

@@ -1,75 +1,50 @@
 {
     "pokemon team list": [{
-        "team name": "123",
+        "team name": "Bird",
         "pokemon team": [
             {
-                "secondaryType": "qwew",
-                "item": "ghj",
+                "secondaryType": "None",
+                "item": "Blue Shard",
+                "primaryType": "Water",
                 "moves": [
-                    "qwe",
+                    "Surf",
                     ""
                 ],
-                "primaryType": "wqeui",
-                "baseStatTotal": 12,
-                "name": "asdf"
+                "baseStatTotal": 123,
+                "name": "Vaporeon"
             },
             {
-                "secondaryType": "o",
-                "item": "asdf",
+                "secondaryType": "None",
+                "item": "Red Shard",
+                "primaryType": "Fire",
                 "moves": [
-                    "i",
-                    "ij",
-                    "kj",
-                    "nm"
-                ],
-                "primaryType": "ghj",
-                "baseStatTotal": 46,
-                "name": "wqe"
-            },
-            {
-                "secondaryType": ",",
-                "item": "iyu",
-                "moves": [
-                    "nm",
+                    "Thunder",
                     ""
                 ],
-                "primaryType": "hjk",
-                "baseStatTotal": 8,
-                "name": "qwe"
+                "baseStatTotal": 234,
+                "name": "Flareon"
             },
             {
-                "secondaryType": "fasjkl",
-                "item": "dsjk",
+                "secondaryType": "None",
+                "item": "Yellow Shard",
+                "primaryType": "Electric",
                 "moves": [
-                    "afdshjk",
-                    "jk",
-                    "jkl"
-                ],
-                "primaryType": "dkajl",
-                "baseStatTotal": 213,
-                "name": "qwee"
-            },
-            {
-                "secondaryType": "78",
-                "item": "uio",
-                "moves": [
-                    "qwe",
+                    "Leaf Blade",
                     ""
                 ],
-                "primaryType": "23",
-                "baseStatTotal": 5,
-                "name": "qwke"
+                "baseStatTotal": 345,
+                "name": "Jolteon"
             },
             {
-                "secondaryType": "io",
-                "item": "sf",
+                "secondaryType": "None",
+                "item": "Green Shard",
+                "primaryType": "Grass",
                 "moves": [
-                    "wqe",
+                    "Sand Blast",
                     ""
                 ],
-                "primaryType": "df",
-                "baseStatTotal": 6,
-                "name": "qwe"
+                "baseStatTotal": 456,
+                "name": "Leafeon"
             }
         ]
     }],

@@ -31,6 +31,15 @@ public class AddPokemonWindow extends JFrame implements ActionListener {
         super("Pokemon Maker");
         this.pokemonTeam = pokemonTeam;
         this.mainWindow = mainWindow;
+        pokemonName = new JTextField();
+        item = new JTextField();
+        primaryType = new JTextField();
+        secondaryType = new JTextField();
+        move1 = new JTextField();
+        move2 = new JTextField();
+        move3 = new JTextField();
+        move4 = new JTextField();
+        baseStatTotal = new JTextField();
         setPreferredSize(new Dimension(WIDTH, HEIGHT));
         ((JPanel) getContentPane()).setBorder(new EmptyBorder(13, 13, 13, 13));
         setLayout(new GridLayout(0, 1));
@@ -54,7 +63,6 @@ public class AddPokemonWindow extends JFrame implements ActionListener {
         pokemon.setBaseStatTotal(Integer.parseInt(baseStatTotal.getText()));
         pokemonTeam.addPokemon(pokemon);
         mainWindow.remove(mainWindow.getTeamDesign());
-        mainWindow.setPokemonTeam(pokemonTeam);
         mainWindow.addNewDrawing();
         mainWindow.revalidate();
         mainWindow.repaint();
@@ -62,15 +70,6 @@ public class AddPokemonWindow extends JFrame implements ActionListener {
     }
 
     public void createTextFields() {
-        pokemonName = new JTextField();
-        item = new JTextField();
-        primaryType = new JTextField();
-        secondaryType = new JTextField();
-        move1 = new JTextField();
-        move2 = new JTextField();
-        move3 = new JTextField();
-        move4 = new JTextField();
-        baseStatTotal = new JTextField();
         add(new JLabel("Pokemon Name:"));
         add(pokemonName);
         add(new JLabel("Item:"));

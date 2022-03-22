@@ -3,6 +3,7 @@ package ui.buttons;
 import model.PokemonTeam;
 import model.WorkRoom;
 import persistence.JsonWriter;
+import ui.windows.MainWindow;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -13,12 +14,14 @@ public class SaveButton extends JButton {
     private static final String JSON_STORE = "./data/myFile.txt";
 
     private PokemonTeam pokemonTeam;
+    private MainWindow mainWindow;
     private WorkRoom workRoom;
     private JsonWriter jsonWriter;
 
-    public SaveButton(String label, PokemonTeam pokemonTeam) {
+    public SaveButton(String label, PokemonTeam pokemonTeam, MainWindow mainWindow) {
         super(label);
         this.pokemonTeam = pokemonTeam;
+        this.mainWindow = mainWindow;
         workRoom = new WorkRoom("Work Room");
         jsonWriter = new JsonWriter(JSON_STORE);
         setBorderPainted(true);
@@ -40,6 +43,7 @@ public class SaveButton extends JButton {
                 jsonWriter.open();
                 jsonWriter.write(workRoom);
                 jsonWriter.close();
+                mainWindow.getTeamDesign().setIsRemovingFalse();
             } catch (FileNotFoundException exception) {
                 System.out.println("Error!");
             }

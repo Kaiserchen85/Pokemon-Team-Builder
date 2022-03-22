@@ -34,6 +34,10 @@ public class MainWindow extends JFrame {
         return teamDesign;
     }
 
+    public JLabel getTeamNameLabel() {
+        return teamNameLabel;
+    }
+
     // MODIFIES: this
     // EFFECTS:  draws the JFrame window where this DrawingEditor will operate, and populates the tools to be used
     //           to manipulate this drawing
@@ -59,7 +63,7 @@ public class MainWindow extends JFrame {
     // MODIFIES: this
     // EFFECTS:  declares and instantiates a Drawing (newDrawing), and adds it to drawings
     public void addNewDrawing() {
-        TeamDesign newDrawing = new TeamDesign(pokemonTeam);
+        TeamDesign newDrawing = new TeamDesign(pokemonTeam, this);
         teamDesign = newDrawing;
         add(newDrawing, BorderLayout.CENTER);
         validate();
@@ -72,8 +76,8 @@ public class MainWindow extends JFrame {
         toolArea.setLayout(new GridLayout(0,1));
         toolArea.setSize(new Dimension(0, 0));
         JButton addPkmnButton = new AddPokemonButton("Add Pokemon", pokemonTeam, this);
-        JButton removePkmnButton = new RemovePokemonButton("Remove Pokemon", pokemonTeam);
-        JButton saveButton = new SaveButton("Save", pokemonTeam);
+        JButton removePkmnButton = new RemovePokemonButton("Remove Pokemon", pokemonTeam, this);
+        JButton saveButton = new SaveButton("Save", pokemonTeam, this);
         JButton loadButton = new LoadButton("Load", pokemonTeam, this);
         toolArea.add(addPkmnButton);
         toolArea.add(removePkmnButton);
@@ -95,10 +99,6 @@ public class MainWindow extends JFrame {
         return jpanel;
     }
 
-    public void setPokemonTeam(PokemonTeam pokemonTeam) {
-        this.pokemonTeam = pokemonTeam;
-    }
-
     private class ChangeTeamNameListener implements ActionListener {
 
         // EFFECTS: sets active tool to the shape tool
@@ -107,6 +107,7 @@ public class MainWindow extends JFrame {
         public void actionPerformed(ActionEvent e) {
             teamNameLabel.setText(teamNameField.getText());
             pokemonTeam.changeName(teamNameField.getText());
+            teamDesign.setIsRemovingFalse();
         }
     }
 }
