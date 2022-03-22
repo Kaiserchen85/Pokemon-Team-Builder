@@ -1,7 +1,7 @@
 package ui.windows;
 
 import model.PokemonTeam;
-import model.TeamDesign;
+import ui.PokemonTeamDisplayPanel;
 import ui.buttons.AddPokemonButton;
 import ui.buttons.LoadButton;
 import ui.buttons.RemovePokemonButton;
@@ -18,7 +18,7 @@ public class MainWindow extends JFrame {
     public static final int WIDTH = 1000;
     public static final int HEIGHT = 700;
 
-    private TeamDesign teamDesign;
+    private PokemonTeamDisplayPanel pokemonTeamDisplayPanel;
     private PokemonTeam pokemonTeam;
     private JLabel teamNameLabel;
     private JTextField teamNameField;
@@ -30,8 +30,8 @@ public class MainWindow extends JFrame {
     }
 
     // getters
-    public TeamDesign getTeamDesign() {
-        return teamDesign;
+    public PokemonTeamDisplayPanel getPokemonTeamDisplayPanel() {
+        return pokemonTeamDisplayPanel;
     }
 
     public JLabel getTeamNameLabel() {
@@ -46,7 +46,7 @@ public class MainWindow extends JFrame {
         setMinimumSize(new Dimension(WIDTH, HEIGHT));
         add(teamNamePanel(), BorderLayout.NORTH);
         createButtons();
-        addNewDrawing();
+        makePokemonTeamDisplayPanel();
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setVisible(true);
@@ -56,15 +56,15 @@ public class MainWindow extends JFrame {
     // EFFECTS:  sets activeTool, currentDrawing to null, and instantiates drawings and tools with ArrayList
     //           this method is called by the DrawingEditor constructor
     private void initializeFields() {
-        teamDesign = null;
+        pokemonTeamDisplayPanel = null;
         pokemonTeam = new PokemonTeam("Team 1");
     }
 
     // MODIFIES: this
     // EFFECTS:  declares and instantiates a Drawing (newDrawing), and adds it to drawings
-    public void addNewDrawing() {
-        TeamDesign newDrawing = new TeamDesign(pokemonTeam, this);
-        teamDesign = newDrawing;
+    public void makePokemonTeamDisplayPanel() {
+        PokemonTeamDisplayPanel newDrawing = new PokemonTeamDisplayPanel(pokemonTeam, this);
+        pokemonTeamDisplayPanel = newDrawing;
         add(newDrawing, BorderLayout.CENTER);
         validate();
     }
@@ -99,6 +99,14 @@ public class MainWindow extends JFrame {
         return jpanel;
     }
 
+    public void updatePokemonTeamDisplayPanel() {
+        remove(pokemonTeamDisplayPanel);
+        makePokemonTeamDisplayPanel();
+        revalidate();
+        repaint();
+        pokemonTeamDisplayPanel.setIsRemovingFalse();
+    }
+
     private class ChangeTeamNameListener implements ActionListener {
 
         // EFFECTS: sets active tool to the shape tool
@@ -107,7 +115,7 @@ public class MainWindow extends JFrame {
         public void actionPerformed(ActionEvent e) {
             teamNameLabel.setText(teamNameField.getText());
             pokemonTeam.changeName(teamNameField.getText());
-            teamDesign.setIsRemovingFalse();
+            pokemonTeamDisplayPanel.setIsRemovingFalse();
         }
     }
 }

@@ -1,12 +1,8 @@
 # Kaiser Chen's Project
-Where does TeamDesign go?
-Tips for making tests?
-What two events count?
-Do we need variety with the interactions?
-Is the layout good enough for the visual component?
-How to use repaint?
-Confirm merging Phase 3 with master?
-Is the font slightly too small?
+Fix picture thing
+Repaint?
+Font size too small...
+Fix formatting of grid
 
 ## Pokemon Creator and Team Builder
 

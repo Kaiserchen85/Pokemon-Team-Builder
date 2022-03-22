@@ -1,50 +1,54 @@
 {
     "pokemon team list": [{
-        "team name": "Bird",
+        "team name": "Eevee",
         "pokemon team": [
             {
                 "secondaryType": "None",
                 "item": "Blue Shard",
+                "moves": ["Surf"],
                 "primaryType": "Water",
-                "moves": [
-                    "Surf",
-                    ""
-                ],
                 "baseStatTotal": 123,
                 "name": "Vaporeon"
             },
             {
                 "secondaryType": "None",
                 "item": "Red Shard",
+                "moves": ["Thunder"],
                 "primaryType": "Fire",
-                "moves": [
-                    "Thunder",
-                    ""
-                ],
                 "baseStatTotal": 234,
                 "name": "Flareon"
             },
             {
                 "secondaryType": "None",
                 "item": "Yellow Shard",
+                "moves": ["Leaf Blade"],
                 "primaryType": "Electric",
-                "moves": [
-                    "Leaf Blade",
-                    ""
-                ],
                 "baseStatTotal": 345,
                 "name": "Jolteon"
             },
             {
                 "secondaryType": "None",
                 "item": "Green Shard",
+                "moves": ["Sand Blast"],
                 "primaryType": "Grass",
-                "moves": [
-                    "Sand Blast",
-                    ""
-                ],
                 "baseStatTotal": 456,
                 "name": "Leafeon"
+            },
+            {
+                "secondaryType": "None",
+                "item": "Ice",
+                "moves": ["Ice Beam"],
+                "primaryType": "Ice",
+                "baseStatTotal": 567,
+                "name": "Glaceon"
+            },
+            {
+                "secondaryType": "None",
+                "item": "Dark",
+                "moves": ["Dark"],
+                "primaryType": "Dark",
+                "baseStatTotal": 678,
+                "name": "Umbreon"
             }
         ]
     }],

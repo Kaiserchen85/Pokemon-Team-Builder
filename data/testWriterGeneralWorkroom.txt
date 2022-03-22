@@ -5,22 +5,22 @@
             {
                 "secondaryType": "Grass",
                 "item": "Life Orb",
-                "primaryType": "Fire",
                 "moves": [
                     "Thunder",
                     "Thunderbolt"
                 ],
+                "primaryType": "Fire",
                 "baseStatTotal": 144,
                 "name": "Jolteon"
             },
             {
                 "secondaryType": "Grass",
                 "item": "Leftovers",
-                "primaryType": "Water",
                 "moves": [
                     "Flamethrower",
                     "Ember"
                 ],
+                "primaryType": "Water",
                 "baseStatTotal": 144,
                 "name": "Flareon"
             }

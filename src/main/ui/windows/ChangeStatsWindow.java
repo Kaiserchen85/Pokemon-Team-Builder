@@ -1,32 +1,21 @@
 package ui.windows;
 
 import model.Pokemon;
-import model.PokemonTeam;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
-public class ChangeStatsWindow extends JFrame implements ActionListener {
+public class ChangeStatsWindow extends PokemonWindow {
 
     public static final int WIDTH = 1000;
     public static final int HEIGHT = 700;
 
     private Pokemon pokemon;
-    private MainWindow mainWindow;
-    private JTextField item;
-    private JTextField primaryType;
-    private JTextField secondaryType;
-    private JTextField move1;
-    private JTextField move2;
-    private JTextField move3;
-    private JTextField move4;
-    private JTextField baseStatTotal;
 
     public ChangeStatsWindow(Pokemon pokemon, MainWindow mainWindow) {
-        super("Pokemon Maker");
+        super(mainWindow);
         this.pokemon = pokemon;
         this.mainWindow = mainWindow;
         item = new JTextField();
@@ -57,11 +46,9 @@ public class ChangeStatsWindow extends JFrame implements ActionListener {
         pokemon.addMove(move2.getText());
         pokemon.addMove(move3.getText());
         pokemon.addMove(move4.getText());
+        pokemon.removeMove("");
         pokemon.setBaseStatTotal(Integer.parseInt(baseStatTotal.getText()));
-        mainWindow.remove(mainWindow.getTeamDesign());
-        mainWindow.addNewDrawing();
-        mainWindow.revalidate();
-        mainWindow.repaint();
+        mainWindow.updatePokemonTeamDisplayPanel();
         dispose();
     }
 

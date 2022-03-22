@@ -1,5 +1,7 @@
-package model;
+package ui;
 
+import model.Pokemon;
+import model.PokemonTeam;
 import ui.windows.ChangeStatsWindow;
 import ui.windows.MainWindow;
 
@@ -8,12 +10,12 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class TeamDesign extends JPanel {
+public class PokemonTeamDisplayPanel extends JPanel {
     private PokemonTeam pokemonTeam;
     private MainWindow mainWindow;
     private boolean isRemoving;
 
-    public TeamDesign(PokemonTeam pokemonTeam, MainWindow mainWindow) {
+    public PokemonTeamDisplayPanel(PokemonTeam pokemonTeam, MainWindow mainWindow) {
         super();
         this.pokemonTeam = pokemonTeam;
         this.mainWindow = mainWindow;
@@ -21,11 +23,6 @@ public class TeamDesign extends JPanel {
         setBackground(Color.darkGray);
         settingUp();
         isRemoving = false;
-    }
-
-    @Override
-    public void paintComponent(Graphics g) {
-
     }
 
     public void settingUp() {
@@ -44,11 +41,13 @@ public class TeamDesign extends JPanel {
     public JButton setUpPokemon(Pokemon pokemon) {
         JButton jbutton = new JButton();
         JPanel jpanel = new JPanel();
-        jbutton.setBorderPainted(false);
-        jbutton.setFocusPainted(false);
+        Color color = new Color(214, 248, 255);
+        jbutton.setBorderPainted(true);
+        jbutton.setFocusPainted(true);
         jbutton.setContentAreaFilled(true);
-        jpanel.setLayout(new GridLayout(5, 1));
-        jpanel.setBackground(Color.ORANGE);
+        jpanel.setLayout(new GridLayout(6, 1));
+        jpanel.setBackground(color);
+        jpanel.add(new JLabel(new ImageIcon("./data/egg.png")));
         jpanel.add(new JLabel("Pokemon Name: " + pokemon.getName()));
         jpanel.add(new JLabel("Item: " + pokemon.getItem()));
         jpanel.add(new JLabel("Typings: " + pokemon.getPrimaryType() + "/" + pokemon.getSecondaryType()));
@@ -75,11 +74,7 @@ public class TeamDesign extends JPanel {
                 new ChangeStatsWindow(pokemonTeam.getPokemonTeam().get(index), mainWindow);
             } else {
                 pokemonTeam.removePokemon(index);
-                isRemoving = false;
-                mainWindow.remove(mainWindow.getTeamDesign());
-                mainWindow.addNewDrawing();
-                mainWindow.revalidate();
-                mainWindow.repaint();
+                mainWindow.updatePokemonTeamDisplayPanel();
             }
         }
     }
