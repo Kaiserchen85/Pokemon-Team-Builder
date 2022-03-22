@@ -12,8 +12,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-
-public class MainWindow extends JFrame {
+//Pokemon Team Builder Application
+public class TeamBuilderWindow extends JFrame {
 
     public static final int WIDTH = 1000;
     public static final int HEIGHT = 700;
@@ -23,24 +23,15 @@ public class MainWindow extends JFrame {
     private JLabel teamNameLabel;
     private JTextField teamNameField;
 
-    public MainWindow() {
+    //EFFECTS: Creates Team Builder Window.
+    public TeamBuilderWindow() {
         super("Pokemon Team Builder");
         initializeFields();
         initializeGraphics();
     }
 
-    // getters
-    public PokemonTeamDisplayPanel getPokemonTeamDisplayPanel() {
-        return pokemonTeamDisplayPanel;
-    }
-
-    public JLabel getTeamNameLabel() {
-        return teamNameLabel;
-    }
-
-    // MODIFIES: this
-    // EFFECTS:  draws the JFrame window where this DrawingEditor will operate, and populates the tools to be used
-    //           to manipulate this drawing
+    // MODIFIES: This
+    // EFFECTS:  Creates the JFrame window where this window will operate, add buttons and panels to JFrame.
     private void initializeGraphics() {
         setLayout(new BorderLayout());
         setMinimumSize(new Dimension(WIDTH, HEIGHT));
@@ -60,8 +51,8 @@ public class MainWindow extends JFrame {
         pokemonTeam = new PokemonTeam("Team 1");
     }
 
-    // MODIFIES: this
-    // EFFECTS:  declares and instantiates a Drawing (newDrawing), and adds it to drawings
+    // MODIFIES: This
+    // EFFECTS:  Declares and instantiates a Team Builder display panel, and adds it to this.
     public void makePokemonTeamDisplayPanel() {
         PokemonTeamDisplayPanel newDrawing = new PokemonTeamDisplayPanel(pokemonTeam, this);
         pokemonTeamDisplayPanel = newDrawing;
@@ -69,8 +60,8 @@ public class MainWindow extends JFrame {
         validate();
     }
 
-    // MODIFIES: this
-    // EFFECTS:  a helper method which declares and instantiates all tools
+    // MODIFIES: This
+    // EFFECTS:  A helper method which declares and instantiates all buttons.
     private void createButtons() {
         JPanel toolArea = new JPanel();
         toolArea.setLayout(new GridLayout(0,1));
@@ -86,6 +77,7 @@ public class MainWindow extends JFrame {
         add(toolArea, BorderLayout.SOUTH);
     }
 
+    //EFFECTS: Create Team Name Panel at top of Team Builder Window.
     private JPanel teamNamePanel() {
         JPanel jpanel = new JPanel();
         jpanel.setLayout(new FlowLayout());
@@ -99,6 +91,8 @@ public class MainWindow extends JFrame {
         return jpanel;
     }
 
+    //MODIFIES: This
+    //EFFECTS: Remakes Pokemon Team display panel with updated changes.
     public void updatePokemonTeamDisplayPanel() {
         remove(pokemonTeamDisplayPanel);
         makePokemonTeamDisplayPanel();
@@ -107,10 +101,17 @@ public class MainWindow extends JFrame {
         pokemonTeamDisplayPanel.setIsRemovingFalse();
     }
 
+    public PokemonTeamDisplayPanel getPokemonTeamDisplayPanel() {
+        return pokemonTeamDisplayPanel;
+    }
+
+    public JLabel getTeamNameLabel() {
+        return teamNameLabel;
+    }
+
     private class ChangeTeamNameListener implements ActionListener {
 
-        // EFFECTS: sets active tool to the shape tool
-        //          called by the framework when the tool is clicked
+        // EFFECTS: Changes Team Name on Team Builder Window and in Pokemon Team.
         @Override
         public void actionPerformed(ActionEvent e) {
             teamNameLabel.setText(teamNameField.getText());

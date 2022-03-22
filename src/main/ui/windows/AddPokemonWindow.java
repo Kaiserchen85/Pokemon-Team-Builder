@@ -8,6 +8,7 @@ import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 
+//Panel for adding Pokemon.
 public class AddPokemonWindow extends PokemonWindow {
 
     public static final int WIDTH = 1000;
@@ -15,8 +16,9 @@ public class AddPokemonWindow extends PokemonWindow {
 
     private PokemonTeam pokemonTeam;
 
-    public AddPokemonWindow(PokemonTeam pokemonTeam, MainWindow mainWindow) {
-        super(mainWindow);
+    //EFFECTS: Creates window for adding Pokemon to Pokemon Team.
+    public AddPokemonWindow(PokemonTeam pokemonTeam, TeamBuilderWindow teamBuilderWindow) {
+        super(teamBuilderWindow);
         this.pokemonTeam = pokemonTeam;
         setPreferredSize(new Dimension(WIDTH, HEIGHT));
         ((JPanel) getContentPane()).setBorder(new EmptyBorder(13, 13, 13, 13));
@@ -30,6 +32,8 @@ public class AddPokemonWindow extends PokemonWindow {
         setVisible(true);
     }
 
+    //MODIFIES: TeamBuilderWindow
+    //EFFECTS: Add Pokemon to Pokemon Team and reflect changes on Team Builder Window
     public void actionPerformed(ActionEvent e) {
         Pokemon pokemon = new Pokemon(pokemonName.getText());
         pokemon.addItem(item.getText());
@@ -41,10 +45,11 @@ public class AddPokemonWindow extends PokemonWindow {
         pokemon.removeMove("");
         pokemon.setBaseStatTotal(Integer.parseInt(baseStatTotal.getText()));
         pokemonTeam.addPokemon(pokemon);
-        mainWindow.updatePokemonTeamDisplayPanel();
+        teamBuilderWindow.updatePokemonTeamDisplayPanel();
         dispose();
     }
 
+    //EFFECTS: Create text and text field for window.
     public void createTextFields() {
         add(new JLabel("Pokemon Name:"));
         add(pokemonName);

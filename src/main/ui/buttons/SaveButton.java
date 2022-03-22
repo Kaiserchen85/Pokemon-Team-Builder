@@ -3,20 +3,22 @@ package ui.buttons;
 import model.PokemonTeam;
 import model.WorkRoom;
 import persistence.JsonWriter;
-import ui.windows.MainWindow;
+import ui.windows.TeamBuilderWindow;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
 
+//Button for saving Pokemon Team to file.
 public class SaveButton extends PokemonButton {
     private static final String JSON_STORE = "./data/myFile.txt";
 
     private WorkRoom workRoom;
     private JsonWriter jsonWriter;
 
-    public SaveButton(String label, PokemonTeam pokemonTeam, MainWindow mainWindow) {
-        super(label, pokemonTeam, mainWindow);
+    //EFFECTS: Create button for saving Pokemon.
+    public SaveButton(String label, PokemonTeam pokemonTeam, TeamBuilderWindow teamBuilderWindow) {
+        super(label, pokemonTeam, teamBuilderWindow);
         workRoom = new WorkRoom("Work Room");
         jsonWriter = new JsonWriter(JSON_STORE);
         addActionListener(new SaveTeamListener());
@@ -24,8 +26,7 @@ public class SaveButton extends PokemonButton {
 
     private class SaveTeamListener implements ActionListener {
 
-        // EFFECTS: sets active tool to the shape tool
-        //          called by the framework when the tool is clicked
+        // EFFECTS: Saves Pokemon Team to file.
         @Override
         public void actionPerformed(ActionEvent e) {
             // EFFECTS: Saves the workroom to file.

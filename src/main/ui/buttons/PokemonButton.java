@@ -1,18 +1,20 @@
 package ui.buttons;
 
 import model.PokemonTeam;
-import ui.windows.MainWindow;
+import ui.windows.TeamBuilderWindow;
 
 import javax.swing.*;
 
+//Button for manipulating Pokemon Team Builder.
 public abstract class PokemonButton extends JButton {
     protected PokemonTeam pokemonTeam;
-    protected MainWindow getMainWindow;
+    protected TeamBuilderWindow getTeamBuilderWindow;
 
-    public PokemonButton(String label, PokemonTeam pokemonTeam, MainWindow mainWindow) {
+    //EFFECTS: Create buttons.
+    public PokemonButton(String label, PokemonTeam pokemonTeam, TeamBuilderWindow teamBuilderWindow) {
         super(label);
         this.pokemonTeam = pokemonTeam;
-        this.getMainWindow = mainWindow;
+        this.getTeamBuilderWindow = teamBuilderWindow;
         setBorderPainted(true);
         setFocusPainted(true);
         setContentAreaFilled(true);
@@ -22,7 +24,7 @@ public abstract class PokemonButton extends JButton {
         return pokemonTeam;
     }
 
-    public MainWindow getMainWindow() {
-        return getMainWindow;
+    public TeamBuilderWindow getMainWindow() {
+        return getTeamBuilderWindow;
     }
 }

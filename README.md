@@ -1,5 +1,4 @@
 # Kaiser Chen's Project
-Fix picture thing
 Repaint?
 Font size too small...
 Fix formatting of grid

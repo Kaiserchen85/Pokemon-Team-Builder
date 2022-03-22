@@ -7,6 +7,7 @@ import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 
+//Panel for changing the stats of Pokemon.
 public class ChangeStatsWindow extends PokemonWindow {
 
     public static final int WIDTH = 1000;
@@ -14,10 +15,11 @@ public class ChangeStatsWindow extends PokemonWindow {
 
     private Pokemon pokemon;
 
-    public ChangeStatsWindow(Pokemon pokemon, MainWindow mainWindow) {
-        super(mainWindow);
+    //EFFECTS: Create Pokemon Window for changing stats.
+    public ChangeStatsWindow(Pokemon pokemon, TeamBuilderWindow teamBuilderWindow) {
+        super(teamBuilderWindow);
         this.pokemon = pokemon;
-        this.mainWindow = mainWindow;
+        this.teamBuilderWindow = teamBuilderWindow;
         item = new JTextField();
         primaryType = new JTextField();
         secondaryType = new JTextField();
@@ -38,6 +40,7 @@ public class ChangeStatsWindow extends PokemonWindow {
         setVisible(true);
     }
 
+    //EFFECTS: Changes Pokemon and updates on Team Builder Window.
     public void actionPerformed(ActionEvent e) {
         pokemon.addItem(item.getText());
         pokemon.addTyping(primaryType.getText(), secondaryType.getText());
@@ -48,10 +51,11 @@ public class ChangeStatsWindow extends PokemonWindow {
         pokemon.addMove(move4.getText());
         pokemon.removeMove("");
         pokemon.setBaseStatTotal(Integer.parseInt(baseStatTotal.getText()));
-        mainWindow.updatePokemonTeamDisplayPanel();
+        teamBuilderWindow.updatePokemonTeamDisplayPanel();
         dispose();
     }
 
+    //EFFECTS: Create text and text field for window.
     public void createTextFields() {
         item.setText(pokemon.getItem());
         primaryType.setText(pokemon.getPrimaryType());
@@ -76,6 +80,7 @@ public class ChangeStatsWindow extends PokemonWindow {
         add(baseStatTotal);
     }
 
+    //EFFECTS: Adds moves from inputted string.
     public void setMove(JTextField move, int index) {
         if (index < pokemon.getMoves().size()) {
             move.setText(pokemon.getMoves().get(index));

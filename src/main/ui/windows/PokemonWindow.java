@@ -1,13 +1,12 @@
 package ui.windows;
 
-import model.PokemonTeam;
-
 import javax.swing.*;
 import java.awt.event.ActionListener;
 
+//Panel for manipulating Pokemon Team Builder.
 public abstract class PokemonWindow extends JFrame implements ActionListener {
 
-    protected MainWindow mainWindow;
+    protected TeamBuilderWindow teamBuilderWindow;
     protected JTextField pokemonName;
     protected JTextField item;
     protected JTextField primaryType;
@@ -18,9 +17,10 @@ public abstract class PokemonWindow extends JFrame implements ActionListener {
     protected JTextField move4;
     protected JTextField baseStatTotal;
 
-    public PokemonWindow(MainWindow mainWindow) {
+    //EFFECTS: Constructs Pokemon window.
+    public PokemonWindow(TeamBuilderWindow teamBuilderWindow) {
         super("Pokemon Editor");
-        this.mainWindow = mainWindow;
+        this.teamBuilderWindow = teamBuilderWindow;
         pokemonName = new JTextField();
         item = new JTextField();
         primaryType = new JTextField();
@@ -31,4 +31,7 @@ public abstract class PokemonWindow extends JFrame implements ActionListener {
         move4 = new JTextField();
         baseStatTotal = new JTextField();
     }
+
+    //EFFECTS: Creates text and text fields for window.
+    public abstract void createTextFields();
 }

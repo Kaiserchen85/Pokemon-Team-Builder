@@ -2,22 +2,23 @@ package ui.buttons;
 
 import model.PokemonTeam;
 import ui.windows.AddPokemonWindow;
-import ui.windows.MainWindow;
+import ui.windows.TeamBuilderWindow;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+//Button for adding Pokemon.
 public class AddPokemonButton extends PokemonButton {
 
-    public AddPokemonButton(String label, PokemonTeam pokemonTeam, MainWindow mainWindow) {
-        super(label, pokemonTeam, mainWindow);
+    //EFFECTS: Creates button for adding Pokemon.
+    public AddPokemonButton(String label, PokemonTeam pokemonTeam, TeamBuilderWindow teamBuilderWindow) {
+        super(label, pokemonTeam, teamBuilderWindow);
         addActionListener(new AddPokemonListener());
     }
 
     private class AddPokemonListener implements ActionListener {
 
-        // EFFECTS: sets active tool to the shape tool
-        //          called by the framework when the tool is clicked
+        // EFFECTS: Opens AddPokemonWindow.
         @Override
         public void actionPerformed(ActionEvent e) {
             if (getPokemonTeam().getPokemonTeam().size() < 6) {

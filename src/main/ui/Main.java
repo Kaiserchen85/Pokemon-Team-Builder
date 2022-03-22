@@ -1,11 +1,11 @@
 package ui;
 
-import ui.windows.MainWindow;
+import ui.windows.TeamBuilderWindow;
 
 //Run Project Application
 public class Main {
     public static void main(String[] args) {
-        new MainWindow();
+        new TeamBuilderWindow();
         //new TeamBuilderApp();
     }
 }
