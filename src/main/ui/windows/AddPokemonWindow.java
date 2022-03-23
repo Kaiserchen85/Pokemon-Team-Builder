@@ -8,6 +8,8 @@ import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 
+import static ui.windows.TeamBuilderWindow.FONT;
+
 //Panel for adding Pokemon.
 public class AddPokemonWindow extends PokemonWindow {
 
@@ -20,12 +22,10 @@ public class AddPokemonWindow extends PokemonWindow {
     public AddPokemonWindow(PokemonTeam pokemonTeam, TeamBuilderWindow teamBuilderWindow) {
         super(teamBuilderWindow);
         this.pokemonTeam = pokemonTeam;
-        setPreferredSize(new Dimension(WIDTH, HEIGHT));
-        ((JPanel) getContentPane()).setBorder(new EmptyBorder(13, 13, 13, 13));
-        setLayout(new GridLayout(0, 1));
         createTextFields();
         JButton btn = new JButton("Ok");
         btn.addActionListener(this);
+        btn.setFont(FONT);
         add(btn);
         pack();
         setLocationRelativeTo(null);
@@ -51,19 +51,19 @@ public class AddPokemonWindow extends PokemonWindow {
 
     //EFFECTS: Create text and text field for window.
     public void createTextFields() {
-        add(new JLabel("Pokemon Name:"));
+        createJLabelText("Pokemon Name: ");
         add(pokemonName);
-        add(new JLabel("Item:"));
+        createJLabelText("Item: ");
         add(item);
-        add(new JLabel("Typing:"));
+        createJLabelText("Typing: ");
         add(primaryType);
         add(secondaryType);
-        add(new JLabel("Moves:"));
+        createJLabelText("Moves: ");
         add(move1);
         add(move2);
         add(move3);
         add(move4);
-        add(new JLabel("Base Stat Total:"));
+        createJLabelText("Base Stat Total: ");
         add(baseStatTotal);
     }
 }

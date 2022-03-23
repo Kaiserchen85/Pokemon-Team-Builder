@@ -10,6 +10,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import static ui.windows.TeamBuilderWindow.FONT;
+
 //Panel for displaying Pokemon.
 public class PokemonTeamDisplayPanel extends JPanel {
     private PokemonTeam pokemonTeam;
@@ -51,14 +53,24 @@ public class PokemonTeamDisplayPanel extends JPanel {
         jbutton.setContentAreaFilled(true);
         jpanel.setLayout(new GridLayout(6, 1));
         jpanel.setBackground(color);
-        jpanel.add(new JLabel(new ImageIcon("./data/egg.png")));
-        jpanel.add(new JLabel("Pokemon Name: " + pokemon.getName()));
-        jpanel.add(new JLabel("Item: " + pokemon.getItem()));
-        jpanel.add(new JLabel("Typings: " + pokemon.getPrimaryType() + "/" + pokemon.getSecondaryType()));
-        jpanel.add(new JLabel("Moves: " + pokemon.getMoves()));
-        jpanel.add(new JLabel("Base Stat Total: " + pokemon.getBaseStatTotal()));
+        ImageIcon miniEgg = new ImageIcon("./data/egg.png");
+        ImageIcon newEgg = new ImageIcon(miniEgg.getImage().getScaledInstance(70, 70, Image.SCALE_DEFAULT));
+        JLabel egg = new JLabel(newEgg);
+        jpanel.add(egg);
+        createJLabelText(jpanel, "Pokemon Name: " + pokemon.getName());
+        createJLabelText(jpanel, "Item: " + pokemon.getItem());
+        createJLabelText(jpanel, "Typing: " + pokemon.getPrimaryType() + "/" + pokemon.getSecondaryType());
+        createJLabelText(jpanel, "Moves: " + pokemon.getMoves());
+        createJLabelText(jpanel, "Base Stat Total: " + pokemon.getBaseStatTotal());
         jbutton.add(jpanel);
         return jbutton;
+    }
+
+    //EFFECTS: Adds text onto window.
+    public void createJLabelText(JPanel jpanel, String message) {
+        JLabel text = new JLabel(message);
+        text.setFont(FONT);
+        jpanel.add(text);
     }
 
     public void setIsRemovingTrue() {

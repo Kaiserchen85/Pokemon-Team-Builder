@@ -15,8 +15,9 @@ import java.awt.event.ActionListener;
 //Pokemon Team Builder Application
 public class TeamBuilderWindow extends JFrame {
 
-    public static final int WIDTH = 1000;
-    public static final int HEIGHT = 700;
+    public static final int WIDTH = 2000;
+    public static final int HEIGHT = 1400;
+    public static final Font FONT = new Font("Comic Sans", Font.BOLD, 20);
 
     private PokemonTeamDisplayPanel pokemonTeamDisplayPanel;
     private PokemonTeam pokemonTeam;
@@ -85,6 +86,9 @@ public class TeamBuilderWindow extends JFrame {
         button.addActionListener(new ChangeTeamNameListener());
         teamNameLabel = new JLabel(pokemonTeam.getTeamName());
         teamNameField = new JTextField(5);
+        button.setFont(FONT);
+        teamNameField.setFont(FONT);
+        teamNameLabel.setFont(FONT);
         jpanel.add(teamNameField);
         jpanel.add(button);
         jpanel.add(teamNameLabel);
@@ -96,8 +100,6 @@ public class TeamBuilderWindow extends JFrame {
     public void updatePokemonTeamDisplayPanel() {
         remove(pokemonTeamDisplayPanel);
         makePokemonTeamDisplayPanel();
-        revalidate();
-        repaint();
         pokemonTeamDisplayPanel.setIsRemovingFalse();
     }
 

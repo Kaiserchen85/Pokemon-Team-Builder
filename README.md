@@ -1,7 +1,6 @@
 # Kaiser Chen's Project
-Repaint?
-Font size too small...
 Fix formatting of grid
+Fix RME
 
 ## Pokemon Creator and Team Builder
 

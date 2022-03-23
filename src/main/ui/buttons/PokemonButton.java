@@ -5,6 +5,8 @@ import ui.windows.TeamBuilderWindow;
 
 import javax.swing.*;
 
+import static ui.windows.TeamBuilderWindow.FONT;
+
 //Button for manipulating Pokemon Team Builder.
 public abstract class PokemonButton extends JButton {
     protected PokemonTeam pokemonTeam;
@@ -18,6 +20,7 @@ public abstract class PokemonButton extends JButton {
         setBorderPainted(true);
         setFocusPainted(true);
         setContentAreaFilled(true);
+        setFont(FONT);
     }
 
     public PokemonTeam getPokemonTeam() {

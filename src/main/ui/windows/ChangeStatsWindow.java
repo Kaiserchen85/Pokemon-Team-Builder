@@ -7,11 +7,10 @@ import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 
+import static ui.windows.TeamBuilderWindow.FONT;
+
 //Panel for changing the stats of Pokemon.
 public class ChangeStatsWindow extends PokemonWindow {
-
-    public static final int WIDTH = 1000;
-    public static final int HEIGHT = 700;
 
     private Pokemon pokemon;
 
@@ -19,21 +18,10 @@ public class ChangeStatsWindow extends PokemonWindow {
     public ChangeStatsWindow(Pokemon pokemon, TeamBuilderWindow teamBuilderWindow) {
         super(teamBuilderWindow);
         this.pokemon = pokemon;
-        this.teamBuilderWindow = teamBuilderWindow;
-        item = new JTextField();
-        primaryType = new JTextField();
-        secondaryType = new JTextField();
-        move1 = new JTextField();
-        move2 = new JTextField();
-        move3 = new JTextField();
-        move4 = new JTextField();
-        baseStatTotal = new JTextField();
-        setPreferredSize(new Dimension(WIDTH, HEIGHT));
-        ((JPanel) getContentPane()).setBorder(new EmptyBorder(13, 13, 13, 13));
-        setLayout(new GridLayout(0, 1));
         createTextFields();
         JButton btn = new JButton("Ok");
         btn.addActionListener(this);
+        btn.setFont(FONT);
         add(btn);
         pack();
         setLocationRelativeTo(null);
@@ -65,18 +53,18 @@ public class ChangeStatsWindow extends PokemonWindow {
         setMove(move3, 2);
         setMove(move4, 3);
         baseStatTotal.setText(Integer.toString(pokemon.getBaseStatTotal()));
-        add(new JLabel("Pokemon Name: " + pokemon.getName()));
-        add(new JLabel("Item:"));
+        createJLabelText("Pokemon Name: " + pokemon.getName());
+        createJLabelText("Item: ");
         add(item);
-        add(new JLabel("Typing:"));
+        createJLabelText("Typing: ");
         add(primaryType);
         add(secondaryType);
-        add(new JLabel("Moves:"));
+        createJLabelText("Moves: ");
         add(move1);
         add(move2);
         add(move3);
         add(move4);
-        add(new JLabel("Base Stat Total:"));
+        createJLabelText("Base Stat Total: ");
         add(baseStatTotal);
     }
 

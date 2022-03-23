@@ -4,51 +4,51 @@
         "pokemon team": [
             {
                 "secondaryType": "None",
-                "item": "Blue Shard",
-                "moves": ["Surf"],
+                "item": "Water Stone",
+                "moves": ["Water Gun"],
                 "primaryType": "Water",
                 "baseStatTotal": 123,
                 "name": "Vaporeon"
             },
             {
                 "secondaryType": "None",
-                "item": "Red Shard",
-                "moves": ["Thunder"],
+                "item": "Fire Stone",
+                "moves": ["Fire Spin"],
                 "primaryType": "Fire",
                 "baseStatTotal": 234,
                 "name": "Flareon"
             },
             {
                 "secondaryType": "None",
-                "item": "Yellow Shard",
-                "moves": ["Leaf Blade"],
+                "item": "Thunderstone",
+                "moves": ["Electric Terrain"],
                 "primaryType": "Electric",
                 "baseStatTotal": 345,
                 "name": "Jolteon"
             },
             {
                 "secondaryType": "None",
-                "item": "Green Shard",
-                "moves": ["Sand Blast"],
-                "primaryType": "Grass",
+                "item": "None",
+                "moves": ["Psychic"],
+                "primaryType": "Psychic",
                 "baseStatTotal": 456,
-                "name": "Leafeon"
+                "name": "Espeon"
             },
             {
                 "secondaryType": "None",
-                "item": "Ice",
-                "moves": ["Ice Beam"],
-                "primaryType": "Ice",
-                "baseStatTotal": 567,
-                "name": "Glaceon"
-            },
-            {
-                "secondaryType": "None",
-                "item": "Dark",
-                "moves": ["Dark"],
+                "item": "None",
+                "moves": ["Dark Pulse"],
                 "primaryType": "Dark",
-                "baseStatTotal": 678,
+                "baseStatTotal": 567,
                 "name": "Umbreon"
+            },
+            {
+                "secondaryType": "None",
+                "item": "Leaf Stone",
+                "moves": ["Grass Knot"],
+                "primaryType": "Grass",
+                "baseStatTotal": 678,
+                "name": "Leafeon"
             }
         ]
     }],
