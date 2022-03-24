@@ -1,6 +1,4 @@
 # Kaiser Chen's Project
-Fix formatting of grid
-Fix RME
 
 ## Pokemon Creator and Team Builder
 
@@ -30,5 +28,5 @@ Thus, I thought it would be neat if I could build a small team builder using the
 - As a user, I want to be able to add and remove moves to my Pokemon.
 - As a user, I want to be able to change the typing and stats of my Pokemon in my team.
 - As a user, I want to be able to re-arrange my Pokemon in my team.
-- As a user, I want to be able to give the option to save my Pokemon Team when quitting.
-- As a user, I want to be able to give the option to load my Pokemon Team when opening the app.
+- As a user, I want to be able to give the option to save my Pokemon Team.
+- As a user, I want to be able to give the option to load my Pokemon Team.
