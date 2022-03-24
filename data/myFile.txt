@@ -5,48 +5,48 @@
             {
                 "secondaryType": "None",
                 "item": "Water Stone",
-                "moves": ["Water Gun"],
                 "primaryType": "Water",
+                "moves": ["Water Gun"],
                 "baseStatTotal": 123,
                 "name": "Vaporeon"
             },
             {
                 "secondaryType": "None",
                 "item": "Fire Stone",
-                "moves": ["Fire Spin"],
                 "primaryType": "Fire",
+                "moves": ["Fire Spin"],
                 "baseStatTotal": 234,
                 "name": "Flareon"
             },
             {
                 "secondaryType": "None",
                 "item": "Thunderstone",
-                "moves": ["Electric Terrain"],
                 "primaryType": "Electric",
+                "moves": ["Electric Terrain"],
                 "baseStatTotal": 345,
                 "name": "Jolteon"
             },
             {
                 "secondaryType": "None",
                 "item": "None",
-                "moves": ["Psychic"],
                 "primaryType": "Psychic",
+                "moves": ["Psychic"],
                 "baseStatTotal": 456,
                 "name": "Espeon"
             },
             {
                 "secondaryType": "None",
                 "item": "None",
-                "moves": ["Dark Pulse"],
                 "primaryType": "Dark",
+                "moves": ["Dark Pulse"],
                 "baseStatTotal": 567,
                 "name": "Umbreon"
             },
             {
                 "secondaryType": "None",
                 "item": "Leaf Stone",
-                "moves": ["Grass Knot"],
                 "primaryType": "Grass",
+                "moves": ["Grass Knot"],
                 "baseStatTotal": 678,
                 "name": "Leafeon"
             }
