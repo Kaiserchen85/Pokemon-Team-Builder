@@ -4,17 +4,12 @@ import model.Pokemon;
 import model.PokemonTeam;
 
 import javax.swing.*;
-import javax.swing.border.EmptyBorder;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 
 import static ui.windows.TeamBuilderWindow.FONT;
 
 //Panel for adding Pokemon.
 public class AddPokemonWindow extends PokemonWindow {
-
-    public static final int WIDTH = 1000;
-    public static final int HEIGHT = 700;
 
     private PokemonTeam pokemonTeam;
 
@@ -23,10 +18,10 @@ public class AddPokemonWindow extends PokemonWindow {
         super(teamBuilderWindow);
         this.pokemonTeam = pokemonTeam;
         createTextFields();
-        JButton btn = new JButton("Ok");
-        btn.addActionListener(this);
-        btn.setFont(FONT);
-        add(btn);
+        JButton button = new JButton("Ok");
+        button.addActionListener(this);
+        button.setFont(FONT);
+        add(button);
         pack();
         setLocationRelativeTo(null);
         setVisible(true);
@@ -50,7 +45,6 @@ public class AddPokemonWindow extends PokemonWindow {
         add(baseStatTotal);
     }
 
-    //MODIFIES: TeamBuilderWindow
     //EFFECTS: Add Pokemon to Pokemon Team and reflect changes on Team Builder Window
     public void actionPerformed(ActionEvent e) {
         Pokemon pokemon = new Pokemon(pokemonName.getText());

@@ -3,8 +3,6 @@ package ui.windows;
 import model.Pokemon;
 
 import javax.swing.*;
-import javax.swing.border.EmptyBorder;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 
 import static ui.windows.TeamBuilderWindow.FONT;
@@ -19,10 +17,10 @@ public class ChangeStatsWindow extends PokemonWindow {
         super(teamBuilderWindow);
         this.pokemon = pokemon;
         createTextFields();
-        JButton btn = new JButton("Ok");
-        btn.addActionListener(this);
-        btn.setFont(FONT);
-        add(btn);
+        JButton button = new JButton("Ok");
+        button.addActionListener(this);
+        button.setFont(FONT);
+        add(button);
         pack();
         setLocationRelativeTo(null);
         setVisible(true);

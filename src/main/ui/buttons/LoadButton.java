@@ -6,7 +6,6 @@ import persistence.JsonReader;
 import ui.windows.TeamBuilderWindow;
 
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.IOException;
 
 //Button for loading Pokemon Team from files.

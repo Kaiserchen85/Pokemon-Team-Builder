@@ -14,6 +14,7 @@ import static ui.windows.TeamBuilderWindow.FONT;
 
 //Panel for displaying Pokemon.
 public class PokemonTeamDisplayPanel extends JPanel implements ActionListener {
+
     private PokemonTeam pokemonTeam;
     private TeamBuilderWindow teamBuilderWindow;
     private boolean isRemoving;

@@ -13,7 +13,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 //References SimpleDrawingPlayer-Complete
-//Pokemon Team Builder Application
+//Pokemon Team Builder GUI Application
 public class TeamBuilderWindow extends JFrame implements ActionListener {
 
     public static final int WIDTH = 2000;
@@ -61,7 +61,6 @@ public class TeamBuilderWindow extends JFrame implements ActionListener {
         validate();
     }
 
-    // MODIFIES: This
     // EFFECTS:  A helper method which declares and instantiates all buttons.
     private void createButtons() {
         JPanel toolArea = new JPanel();

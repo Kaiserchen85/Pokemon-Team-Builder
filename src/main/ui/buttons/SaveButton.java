@@ -6,7 +6,6 @@ import persistence.JsonWriter;
 import ui.windows.TeamBuilderWindow;
 
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
 
 //Button for saving Pokemon Team to file.

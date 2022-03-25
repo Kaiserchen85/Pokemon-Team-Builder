@@ -4,7 +4,6 @@ import model.PokemonTeam;
 import ui.windows.TeamBuilderWindow;
 
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 //Button for removing Pokemon.
 public class RemovePokemonButton extends PokemonButton {
