@@ -13,7 +13,7 @@ import java.awt.event.ActionListener;
 import static ui.windows.TeamBuilderWindow.FONT;
 
 //Panel for displaying Pokemon.
-public class PokemonTeamDisplayPanel extends JPanel {
+public class PokemonTeamDisplayPanel extends JPanel implements ActionListener {
     private PokemonTeam pokemonTeam;
     private TeamBuilderWindow teamBuilderWindow;
     private boolean isRemoving;
@@ -37,7 +37,7 @@ public class PokemonTeamDisplayPanel extends JPanel {
         for (int i = 0; i < pokemonTeam.getPokemonTeam().size(); i++) {
             JButton pokemonButton = setUpPokemon(pokemonTeam.getPokemonTeam().get(i));
             pokemonButton.setActionCommand(Integer.toString(i));
-            pokemonButton.addActionListener(new AdjustPokemonListener());
+            pokemonButton.addActionListener(this);
             jpanel.add(pokemonButton);
         }
         add(jpanel);
@@ -81,19 +81,17 @@ public class PokemonTeamDisplayPanel extends JPanel {
         isRemoving = false;
     }
 
-    private class AdjustPokemonListener implements ActionListener {
-
-        //EFFECTS: Removes Pokemon from panel and Pokemon Team if isRemoving is true,
-        //         otherwise opn ChangeStatsWindow.
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            int index = Integer.parseInt(e.getActionCommand());
-            if (!isRemoving) {
-                new ChangeStatsWindow(pokemonTeam.getPokemonTeam().get(index), teamBuilderWindow);
-            } else {
-                pokemonTeam.removePokemon(index);
-                teamBuilderWindow.updatePokemonTeamDisplayPanel();
-            }
+    //MODIFIES: This
+    //EFFECTS: Removes Pokemon from panel and Pokemon Team if isRemoving is true,
+    //         otherwise open ChangeStatsWindow.
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        int index = Integer.parseInt(e.getActionCommand());
+        if (!isRemoving) {
+            new ChangeStatsWindow(pokemonTeam.getPokemonTeam().get(index), teamBuilderWindow);
+        } else {
+            pokemonTeam.removePokemon(index);
+            teamBuilderWindow.updatePokemonTeamDisplayPanel();
         }
     }
 }

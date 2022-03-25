@@ -21,25 +21,20 @@ public class SaveButton extends PokemonButton {
         super(label, pokemonTeam, teamBuilderWindow);
         workRoom = new WorkRoom("Work Room");
         jsonWriter = new JsonWriter(JSON_STORE);
-        addActionListener(new SaveTeamListener());
     }
 
-    private class SaveTeamListener implements ActionListener {
-
-        // EFFECTS: Saves Pokemon Team to file.
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            // EFFECTS: Saves the workroom to file.
-            try {
-                workRoom.resetPokemonTeam();
-                workRoom.addPokemonTeam(getPokemonTeam());
-                jsonWriter.open();
-                jsonWriter.write(workRoom);
-                jsonWriter.close();
-                getMainWindow().getPokemonTeamDisplayPanel().setIsRemovingFalse();
-            } catch (FileNotFoundException exception) {
-                System.out.println("Error!");
-            }
+    // EFFECTS: Saves Pokemon Team to file.
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        try {
+            workRoom.resetPokemonTeam();
+            workRoom.addPokemonTeam(pokemonTeam);
+            jsonWriter.open();
+            jsonWriter.write(workRoom);
+            jsonWriter.close();
+            teamBuilderWindow.getPokemonTeamDisplayPanel().setIsRemovingFalse();
+        } catch (FileNotFoundException exception) {
+            System.out.println("Error!");
         }
     }
 }

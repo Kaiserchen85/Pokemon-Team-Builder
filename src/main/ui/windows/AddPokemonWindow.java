@@ -32,23 +32,6 @@ public class AddPokemonWindow extends PokemonWindow {
         setVisible(true);
     }
 
-    //MODIFIES: TeamBuilderWindow
-    //EFFECTS: Add Pokemon to Pokemon Team and reflect changes on Team Builder Window
-    public void actionPerformed(ActionEvent e) {
-        Pokemon pokemon = new Pokemon(pokemonName.getText());
-        pokemon.addItem(item.getText());
-        pokemon.addTyping(primaryType.getText(), secondaryType.getText());
-        pokemon.addMove(move1.getText());
-        pokemon.addMove(move2.getText());
-        pokemon.addMove(move3.getText());
-        pokemon.addMove(move4.getText());
-        pokemon.removeMove("");
-        pokemon.setBaseStatTotal(Integer.parseInt(baseStatTotal.getText()));
-        pokemonTeam.addPokemon(pokemon);
-        teamBuilderWindow.updatePokemonTeamDisplayPanel();
-        dispose();
-    }
-
     //EFFECTS: Create text and text field for window.
     public void createTextFields() {
         createJLabelText("Pokemon Name: ");
@@ -65,6 +48,23 @@ public class AddPokemonWindow extends PokemonWindow {
         add(move4);
         createJLabelText("Base Stat Total: ");
         add(baseStatTotal);
+    }
+
+    //MODIFIES: TeamBuilderWindow
+    //EFFECTS: Add Pokemon to Pokemon Team and reflect changes on Team Builder Window
+    public void actionPerformed(ActionEvent e) {
+        Pokemon pokemon = new Pokemon(pokemonName.getText());
+        pokemon.addItem(item.getText());
+        pokemon.addTyping(primaryType.getText(), secondaryType.getText());
+        pokemon.addMove(move1.getText());
+        pokemon.addMove(move2.getText());
+        pokemon.addMove(move3.getText());
+        pokemon.addMove(move4.getText());
+        pokemon.removeMove("");
+        pokemon.setBaseStatTotal(Integer.parseInt(baseStatTotal.getText()));
+        pokemonTeam.addPokemon(pokemon);
+        teamBuilderWindow.updatePokemonTeamDisplayPanel();
+        dispose();
     }
 }
 

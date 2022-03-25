@@ -3,6 +3,7 @@ package ui.windows;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import static ui.windows.TeamBuilderWindow.FONT;
@@ -44,7 +45,7 @@ public abstract class PokemonWindow extends JFrame implements ActionListener {
     }
 
     //EFFECTS: Set font for all text fields.
-    public void settingFont() {
+    protected void settingFont() {
         pokemonName.setFont(FONT);
         item.setFont(FONT);
         primaryType.setFont(FONT);
@@ -57,12 +58,16 @@ public abstract class PokemonWindow extends JFrame implements ActionListener {
     }
 
     //EFFECTS: Adds text onto window.
-    public void createJLabelText(String message) {
+    protected void createJLabelText(String message) {
         JLabel text = new JLabel(message);
         text.setFont(FONT);
         add(text);
     }
 
     //EFFECTS: Creates text and text fields for window.
-    public abstract void createTextFields();
+    protected abstract void createTextFields();
+
+    @Override
+    //EFFECTS: Performs actions that button is required to do.
+    public abstract void actionPerformed(ActionEvent e);
 }

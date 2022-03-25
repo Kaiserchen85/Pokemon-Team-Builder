@@ -30,3 +30,9 @@ Thus, I thought it would be neat if I could build a small team builder using the
 - As a user, I want to be able to re-arrange my Pokemon in my team.
 - As a user, I want to be able to give the option to save my Pokemon Team.
 - As a user, I want to be able to give the option to load my Pokemon Team.
+
+##References
+- TellerApp: https://github.students.cs.ubc.ca/CPSC210/TellerApp
+- JsonSerializationDemo: https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo
+- SimpleDrawingPlayer-Complete: https://github.students.cs.ubc.ca/CPSC210/SimpleDrawingPlayer-Complete
+- egg.png: https://play.pokemonshowdown.com/sprites/bwicons/egg.png

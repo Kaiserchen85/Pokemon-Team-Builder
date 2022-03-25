@@ -12,8 +12,9 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+//References SimpleDrawingPlayer-Complete
 //Pokemon Team Builder Application
-public class TeamBuilderWindow extends JFrame {
+public class TeamBuilderWindow extends JFrame implements ActionListener {
 
     public static final int WIDTH = 2000;
     public static final int HEIGHT = 1400;
@@ -44,9 +45,8 @@ public class TeamBuilderWindow extends JFrame {
         setVisible(true);
     }
 
-    // MODIFIES: this
-    // EFFECTS:  sets activeTool, currentDrawing to null, and instantiates drawings and tools with ArrayList
-    //           this method is called by the DrawingEditor constructor
+    // MODIFIES: This
+    // EFFECTS:  Instantiates PokemonTeam with team name Team 1, make null Team Builder display panel.
     private void initializeFields() {
         pokemonTeamDisplayPanel = null;
         pokemonTeam = new PokemonTeam("Team 1");
@@ -83,7 +83,7 @@ public class TeamBuilderWindow extends JFrame {
         JPanel jpanel = new JPanel();
         jpanel.setLayout(new FlowLayout());
         JButton button = new JButton("Change Team Name");
-        button.addActionListener(new ChangeTeamNameListener());
+        button.addActionListener(this);
         teamNameLabel = new JLabel(pokemonTeam.getTeamName());
         teamNameField = new JTextField(5);
         button.setFont(FONT);
@@ -111,15 +111,12 @@ public class TeamBuilderWindow extends JFrame {
         return teamNameLabel;
     }
 
-    private class ChangeTeamNameListener implements ActionListener {
-
-        // EFFECTS: Changes Team Name on Team Builder Window and in Pokemon Team.
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            teamNameLabel.setText(teamNameField.getText());
-            pokemonTeam.changeName(teamNameField.getText());
-            pokemonTeamDisplayPanel.setIsRemovingFalse();
-        }
+    // EFFECTS: Changes Team Name on Team Builder Window and in Pokemon Team.
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        teamNameLabel.setText(teamNameField.getText());
+        pokemonTeam.changeName(teamNameField.getText());
+        pokemonTeamDisplayPanel.setIsRemovingFalse();
     }
 }
 

@@ -21,28 +21,25 @@ public class LoadButton extends PokemonButton {
         super(label, pokemonTeam, teamBuilderWindow);
         workRoom = new WorkRoom("Work Room");
         jsonReader = new JsonReader(JSON_STORE);
-        addActionListener(new LoadTeamListener());
     }
 
-    private class LoadTeamListener implements ActionListener {
-
-        // EFFECTS: Load Pokemon Team from WorkRoom and updates Team Builder Window.
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            try {
-                workRoom = jsonReader.read();
-                workRoom.addPokemonTeam(getPokemonTeam());
-                PokemonTeam cloneTeam = workRoom.getPokemonTeamList().get(0);
-                pokemonTeam.changeName(cloneTeam.getTeamName());
-                pokemonTeam.getPokemonTeam().clear();
-                for (int i = 0; i < cloneTeam.getPokemonTeam().size(); i++) {
-                    pokemonTeam.addPokemon(cloneTeam.getPokemonTeam().get(i));
-                }
-                getTeamBuilderWindow.getTeamNameLabel().setText(pokemonTeam.getTeamName());
-                getTeamBuilderWindow.updatePokemonTeamDisplayPanel();
-            } catch (IOException exception) {
-                System.out.println("Error!");
+    //MODIFIES: This
+    // EFFECTS: Load Pokemon Team from WorkRoom and updates Team Builder Window.
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        try {
+            workRoom = jsonReader.read();
+            workRoom.addPokemonTeam(pokemonTeam);
+            PokemonTeam cloneTeam = workRoom.getPokemonTeamList().get(0);
+            pokemonTeam.changeName(cloneTeam.getTeamName());
+            pokemonTeam.getPokemonTeam().clear();
+            for (int i = 0; i < cloneTeam.getPokemonTeam().size(); i++) {
+                pokemonTeam.addPokemon(cloneTeam.getPokemonTeam().get(i));
             }
+            teamBuilderWindow.getTeamNameLabel().setText(pokemonTeam.getTeamName());
+            teamBuilderWindow.updatePokemonTeamDisplayPanel();
+        } catch (IOException exception) {
+            System.out.println("Error!");
         }
     }
 }
