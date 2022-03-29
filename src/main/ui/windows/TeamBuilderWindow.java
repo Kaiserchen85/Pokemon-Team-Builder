@@ -1,5 +1,7 @@
 package ui.windows;
 
+import model.Event;
+import model.EventLog;
 import model.PokemonTeam;
 import ui.PokemonTeamDisplayPanel;
 import ui.buttons.AddPokemonButton;
@@ -11,6 +13,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
 
 //References SimpleDrawingPlayer-Complete
 //Pokemon Team Builder GUI Application
@@ -40,7 +43,16 @@ public class TeamBuilderWindow extends JFrame implements ActionListener {
         add(teamNamePanel(), BorderLayout.NORTH);
         createButtons();
         makePokemonTeamDisplayPanel();
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        addWindowListener(new WindowAdapter() {
+
+            //EFFECTS: Print event logged since the start of the application.
+            @Override
+            public void windowClosing(java.awt.event.WindowEvent windowEvent) {
+                printLog(EventLog.getInstance());
+                System.exit(0);
+            }
+        });
         setLocationRelativeTo(null);
         setVisible(true);
     }
@@ -100,6 +112,13 @@ public class TeamBuilderWindow extends JFrame implements ActionListener {
         remove(pokemonTeamDisplayPanel);
         makePokemonTeamDisplayPanel();
         pokemonTeamDisplayPanel.setIsRemovingFalse();
+    }
+
+    //EFFECTS: Print logs stored.
+    public void printLog(EventLog eventLog) {
+        for (Event event : eventLog) {
+            System.out.println(event.toString());
+        }
     }
 
     public PokemonTeamDisplayPanel getPokemonTeamDisplayPanel() {

@@ -31,6 +31,16 @@ Thus, I thought it would be neat if I could build a small team builder using the
 - As a user, I want to be able to give the option to save my Pokemon Team.
 - As a user, I want to be able to give the option to load my Pokemon Team.
 
+##Phase 4: Task 2
+Day Month Date Hour:Minute:Second TimeZone Year
+Pokemon Added.
+
+Day Month Date Hour:Minute:Second TimeZone Year
+Pokemon Removed.
+
+##Phase 4: Task 3
+- 
+
 ##References
 - TellerApp: https://github.students.cs.ubc.ca/CPSC210/TellerApp
 - JsonSerializationDemo: https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo

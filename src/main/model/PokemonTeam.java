@@ -28,6 +28,7 @@ public class PokemonTeam implements Writable {
     public void addPokemon(Pokemon pokemon) {
         if (pokemonTeam.size() < 6) {
             pokemonTeam.add(pokemon);
+            EventLog.getInstance().logEvent(new Event("Pokemon Added."));
         }
     }
 
@@ -37,6 +38,7 @@ public class PokemonTeam implements Writable {
     public boolean removePokemon(int index) {
         if (pokemonTeam.size() > index) {
             pokemonTeam.remove(index);
+            EventLog.getInstance().logEvent(new Event("Pokemon Removed."));
             return true;
         }
         return false;
