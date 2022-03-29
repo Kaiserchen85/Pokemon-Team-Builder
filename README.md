@@ -38,8 +38,11 @@ Pokemon Added.
 Day Month Date Hour:Minute:Second TimeZone Year
 Pokemon Removed.
 
-##Phase 4: Task 3
-- 
+Phase 4: Task 3
+- WorkRoom: refactor so that list becomes a single Pokemon Team
+- Refactor TeamBuilderWindow and PokemonTeamDisplayPanel so that TeamBuilderWindow has PokemonTeam and 
+PokemonTeamDisplayPanel accesses PokemonTeam through TeamBuilderWindow
+- Refactor windows and buttons such that PokemonTeam and Pokemon can be accessed through TeamBuilderWindow
 
 ##References
 - TellerApp: https://github.students.cs.ubc.ca/CPSC210/TellerApp
